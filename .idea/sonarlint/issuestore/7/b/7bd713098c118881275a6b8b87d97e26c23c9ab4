@@ -1,3 +1,3 @@
 
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÁâèÅıÿÿÿÿJ$dac7b35b-fdc7-42e5-ae53-dee3cc227047
-›	java:S116"`Rename this field "fecha_de_autorizacion" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÃÕ±J$9ca509a6-43c9-48e7-8b0b-3974ad0459e0
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÁâèÅıÿÿÿÿJ$3a3dc615-0e25-450a-ae93-52ac2167eafc
+›	java:S116"`Rename this field "fecha_de_autorizacion" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÃÕ±J$cdae7d9d-51f1-4a7b-99c0-b0f6a747ae90
