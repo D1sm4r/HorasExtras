@@ -1157,3 +1157,17 @@ w
 G.idea/sonarlint/issuestore/b/6/b690fb901116ee1ff2daeb2551349326aced95b9,4/d/4d0f8bb3c6b7eae714792c9af251c420762cfc90
 w
 G.idea/sonarlint/issuestore/5/4/54abd7470ac62dadf0f785db961dd3d7e4596501,4/5/454ef2db8f9e0cd2afcf36a4c287a0bc2c3a4f49
+å
+\Backend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/dto/AdminDTO.java,2/7/27a557fcccd36e9b90758472b8ad8b68583098ad
+å
+\Backend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/dto/CargoDTO.java,5/f/5f9f52b9acaf820dbabe5687c81614d1d78b3b2d
+è
+_Backend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/dto/EmpleadoDTO.java,6/6/661fc00adc6f88778462c4beae9b43b3d2c75670
+í
+bBackend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/dto/HorasExtrasDTO.java,c/b/cb53c11182cf38dcd168166bafb7dac53f8ba97d
+ì
+cBackend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/dto/NotificacionDTO.java,4/f/4fd25c0527d1aa103fe12fb05ad7b467ecd6d324
+è
+_Backend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/dto/ProyectoDTO.java,d/3/d3928a93995240fe36f1dfdd61826803df3f8203
+ë
+aBackend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/dto/SupervisorDTO.java,6/c/6c90c465355fd9eb3fd9f4256bc924bc3706164e

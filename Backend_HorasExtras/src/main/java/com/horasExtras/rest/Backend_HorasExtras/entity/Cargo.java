@@ -1,5 +1,6 @@
 package com.horasExtras.rest.Backend_HorasExtras.entity;
 
+import com.horasExtras.rest.Backend_HorasExtras.dto.CargoDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,4 +19,13 @@ public class Cargo {
     private String name;
     @Column(name = "saldo")
     private String saldo;
+
+    public CargoDTO toDTO() {
+        CargoDTO dto = new CargoDTO();
+        dto.setIdCargo(this.getIdCargo());
+        dto.setName(this.getName());
+        dto.setSaldo(this.getSaldo());
+        return dto;
+    }
+
 }

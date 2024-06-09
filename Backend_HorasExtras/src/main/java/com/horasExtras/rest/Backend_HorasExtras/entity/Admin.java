@@ -1,5 +1,6 @@
 package com.horasExtras.rest.Backend_HorasExtras.entity;
 
+import com.horasExtras.rest.Backend_HorasExtras.dto.AdminDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,4 +19,13 @@ public class Admin {
     private String username;
     @Column(name = "contraseña")
     private String contraseña;
+
+    public AdminDTO toDTO() {
+        AdminDTO dto = new AdminDTO();
+        dto.setIdAdmin(this.getIdAdmin());
+        dto.setUsername(this.getUsername());
+        dto.setContraseña(this.getContraseña());
+        return dto;
+    }
+
 }
