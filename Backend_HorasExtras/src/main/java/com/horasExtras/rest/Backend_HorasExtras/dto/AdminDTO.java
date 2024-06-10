@@ -16,6 +16,8 @@ public class AdminDTO {
 
     private String contraseña;
 
+    //------------------------------------------------------------
+
     public Admin toEntity(){
         Admin e = new Admin(idAdmin, username, contraseña);
         e.setIdAdmin(this.getIdAdmin());

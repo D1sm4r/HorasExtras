@@ -20,6 +20,8 @@ public class Admin {
     @Column(name = "contraseña")
     private String contraseña;
 
+    //------------------------------------------------------------
+
     public AdminDTO toDTO() {
         AdminDTO dto = new AdminDTO();
         dto.setIdAdmin(this.getIdAdmin());
