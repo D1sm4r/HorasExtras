@@ -1,6 +1,5 @@
 package com.horasExtras.rest.Backend_HorasExtras.service;
 
-import com.horasExtras.rest.Backend_HorasExtras.dto.ProyectoDTO;
 import com.horasExtras.rest.Backend_HorasExtras.dto.SupervisorDTO;
 
 import java.util.List;
