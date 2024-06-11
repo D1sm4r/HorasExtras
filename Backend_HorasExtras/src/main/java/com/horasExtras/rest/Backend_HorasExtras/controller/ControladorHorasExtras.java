@@ -8,10 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.horasExtras.rest.Backend_HorasExtras.dto.HorasExtrasDTO;
 import com.horasExtras.rest.Backend_HorasExtras.service.IHorasExtrasService;
@@ -23,12 +20,11 @@ public class ControladorHorasExtras {
     @Autowired
     private IHorasExtrasService servicio;
 
-    // http://localhost:8081/horasextras/listar/REST
+    // http://localhost:8080/horasextras/listar/REST
+    @ResponseBody
     @GetMapping("listar/REST")
-    public String listarREST(Model model) {
-        List<HorasExtrasDTO> hextras = servicio.findAll();
-        model.addAttribute("horasextras", hextras);
-        return "rest/index";
+    public List<HorasExtrasDTO> getAllHorasExtrasDTO(){
+        return servicio.findAll();
     }
 
     // http://localhost:8081/horasextras/listar/nuevo/REST

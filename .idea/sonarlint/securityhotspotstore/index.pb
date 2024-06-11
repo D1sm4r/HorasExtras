@@ -1173,3 +1173,5 @@ jBackend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/serv
 ]Frontend/src/main/java/com/example/demo/frontend/equipo20/controller/AdminPageController.java,b/a/ba2cb4908f02e2fd2db274f44379be14a4972c63
 ›
 kBackend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/controller/ControladorCargo.java,2/1/212ba9fc28ce870259122888bd015b2f9892d202
+¡
+qBackend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/controller/ControladorHorasExtras.java,7/6/76d97ad032e2db18c9a7c938cb6f4f28908d7cd7
