@@ -1167,3 +1167,9 @@ lBackend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/serv
 hBackend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/service/IProyectoService.java,b/d/bd1d7c520de1d1e48c245d600d3eae47204933fe
 ö
 jBackend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/service/ISupervisorService.java,1/5/15ab8c49d250e3a6a2f27c2647031c7f4f001682
+ç
+]Backend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/dto/dismarDTO.java,0/a/0a8a1e4983ae591219d679fefa8fa8a08b615284
+ç
+]Frontend/src/main/java/com/example/demo/frontend/equipo20/controller/AdminPageController.java,b/a/ba2cb4908f02e2fd2db274f44379be14a4972c63
+õ
+kBackend_HorasExtras/src/main/java/com/horasExtras/rest/Backend_HorasExtras/controller/ControladorCargo.java,2/1/212ba9fc28ce870259122888bd015b2f9892d202

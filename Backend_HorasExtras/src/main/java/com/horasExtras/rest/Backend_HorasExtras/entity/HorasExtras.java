@@ -32,15 +32,15 @@ public class HorasExtras {
     //------------------------------------------------------------
 
     @ManyToOne
-    @JoinColumn(name = "horasEmpleado")
+    @JoinColumn(name = "id_Empleado")
     private Empleado empleado;
 
     @ManyToOne
-    @JoinColumn(name = "horasProyecto")
+    @JoinColumn(name = "idProyecto")
     private Proyecto proyecto;
 
     @ManyToOne
-    @JoinColumn(name = "horasSupervisor")
+    @JoinColumn(name = "idSupervisor")
     private Supervisor supervisor;
 
     //------------------------------------------------------------

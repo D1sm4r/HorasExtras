@@ -24,7 +24,7 @@ public class Supervisor {
     //------------------------------------------------------------
 
     @ManyToOne
-    @JoinColumn(name = "supervisorAdmin")
+    @JoinColumn(name = "idAdmin")
     private Admin admin;
 
     //------------------------------------------------------------

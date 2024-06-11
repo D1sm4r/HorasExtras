@@ -24,11 +24,11 @@ public class Empleado {
     //------------------------------------------------------------
 
     @ManyToOne
-    @JoinColumn(name = "empleadoCargo")
+    @JoinColumn(name = "idCargo")
     private Cargo cargo;
 
     @ManyToOne
-    @JoinColumn(name = "empleadoAdmin")
+    @JoinColumn(name = "idAdmin")
     private Admin admin;
 
     //------------------------------------------------------------

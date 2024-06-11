@@ -22,11 +22,11 @@ public class Notificacion {
     //------------------------------------------------------------
 
     @ManyToOne
-    @JoinColumn(name = "notificacionEmpleado")
+    @JoinColumn(name = "idEmpleado")
     private Empleado empleado;
 
     @ManyToOne
-    @JoinColumn(name = "notificacionSupervisor")
+    @JoinColumn(name = "idSupervisor")
     private Supervisor supervisor;
 
     //------------------------------------------------------------
