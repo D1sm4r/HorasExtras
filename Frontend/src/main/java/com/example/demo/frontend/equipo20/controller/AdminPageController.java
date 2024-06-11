@@ -18,7 +18,7 @@ import com.example.demo.frontend.equipo20.dto.PersonaDTO;
 import com.example.demo.frontend.equipo20.service.IPersonaService;
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping("Main")
 public class AdminPageController {
 	
 	@Autowired

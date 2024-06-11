@@ -42,7 +42,7 @@ public class PersonaServiceImpl implements IPersonaService {
 			ObjectMapper unMapper = new ObjectMapper();
 
 			List<PersonaDTO> personas = Arrays
-					.asList(unMapper.readValue(new URL("http://localhost:8080/api/bff/persona/findAll"), PersonaDTO[].class));
+					.asList(unMapper.readValue(new URL("http://localhost:8080/persona/findAll"), PersonaDTO[].class));
 			return personas;
 
 		} catch (IOException e) {
@@ -60,7 +60,7 @@ public class PersonaServiceImpl implements IPersonaService {
 
 			RestTemplate restTemplate = new RestTemplate();
 			ResponseEntity<PersonaDTO> responseEntity = restTemplate
-					.getForEntity("http://localhost:8080/api/bff/persona/findById" + "/" + id, PersonaDTO.class);
+					.getForEntity("http://localhost:8080/persona/findById" + "/" + id, PersonaDTO.class);
 
 			if (responseEntity.getStatusCode().is2xxSuccessful()) {
 				PersonaDTO dto = responseEntity.getBody();
@@ -89,7 +89,7 @@ public class PersonaServiceImpl implements IPersonaService {
 			HttpEntity<PersonaDTO> requestEntity = new HttpEntity<>(p, headers);
 
 			RestTemplate restTemplate = new RestTemplate();
-			ResponseEntity<PersonaDTO> responseEntity = restTemplate.postForEntity("http://localhost:8080/api/bff/persona/create",
+			ResponseEntity<PersonaDTO> responseEntity = restTemplate.postForEntity("http://localhost:8080/persona/create",
 					requestEntity, PersonaDTO.class);
 
 			if (responseEntity.getStatusCode().is2xxSuccessful()) {
@@ -115,12 +115,12 @@ public class PersonaServiceImpl implements IPersonaService {
 
 			RestTemplate restTemplate = new RestTemplate();
 			ResponseEntity<PersonaDTO> responseEntity = restTemplate
-					.getForEntity("http://localhost:8080/api/bff/persona/findById/"+ "/" + id, PersonaDTO.class);
+					.getForEntity("http://localhost:8080/persona/findById/"+ "/" + id, PersonaDTO.class);
 
 			if (responseEntity.getStatusCode().is2xxSuccessful()) {
 				PersonaDTO dto = responseEntity.getBody();
 
-				restTemplate.delete("http://localhost:8080/api/bff/persona/delete"+"/" + id);
+				restTemplate.delete("http://localhost:8080/persona/delete"+"/" + id);
 
 				return dto;
 			} else {
