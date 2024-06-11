@@ -6,12 +6,15 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.horasExtras.rest.Backend_HorasExtras.dto.CargoDTO;
 import com.horasExtras.rest.Backend_HorasExtras.service.ICargoService;
@@ -23,53 +26,39 @@ public class ControladorCargo {
     @Autowired
     private ICargoService servicio;
 
-    // http://localhost:8081/cargo/listar/REST
-    @GetMapping("listar/REST")
-    public String listarREST(Model model) {
-        List<CargoDTO> cargos = servicio.findAll();
-        model.addAttribute("cargos", cargos);
-        return "rest/index";
+    @ResponseBody
+    @PostMapping("REST")
+    public CargoDTO agregarCargo(@Valid @NonNull @RequestBody CargoDTO dto) {
+        return servicio.save(dto);
     }
 
-    // http://localhost:8081/cargo/listar/nuevo/REST
-    @GetMapping("listar/nuevo/REST")
-    public String agregarREST(Model model) {
-        model.addAttribute("cargo", new CargoDTO());
-        return "rest/form";
+    @ResponseBody
+    @GetMapping("REST")
+    public List<CargoDTO> findAll() {
+        return servicio.findAll();
     }
 
-    // http://localhost:8081/cargo/REST/id
-    @GetMapping("editar/REST/{id}")
-    public String editarREST(@PathVariable long id, Model model) {
-        Optional<CargoDTO> cargoOpt = servicio.findById(id);
-        if (cargoOpt.isPresent()) {
-            model.addAttribute("cargo", cargoOpt.get());
+    @ResponseBody
+    @GetMapping("REST/{id}")
+    public CargoDTO findById(@PathVariable("id") int id) {
+        Optional<CargoDTO> eDto = servicio.findById(id);
+        if (eDto.isPresent()) {
+            CargoDTO dto = eDto.get();
+            return dto;
         } else {
-            // Manejar el caso cuando el supervisor no se encuentra, por ejemplo, redirigiendo a una página de error o agregando un mensaje.
-            model.addAttribute("mensaje", "Cargo no encontrado");
-            return "rest/error"; // Asegúrate de tener una vista 'error' o ajusta según tu estructura.
+            return null;
         }
-        return "rest/form";
     }
 
-    // http://localhost:8081/cargo/grabar/REST
-    @PostMapping("grabar/REST")
-    public String saveREST(@Valid CargoDTO c, Model model) {
-        servicio.save(c);
-        return "redirect:/admin/cargo";
-    }
-
-    // http://localhost:8081/cargo/eliminar/id
-    @GetMapping("eliminar/REST/{id}")
-    public String deleteREST(@PathVariable long id, Model model) {
-        Optional<CargoDTO> cargoOpt = servicio.findById(id);
-        if (cargoOpt.isPresent()) {
-            servicio.delete(cargoOpt.get());
+    @ResponseBody
+    @DeleteMapping("REST/{id}")
+    public boolean deleteCargoById(@PathVariable("id") int id) {
+        Optional<CargoDTO> eDto = servicio.findById(id);
+        if (eDto.isPresent()) {
+            servicio.delete(eDto.get());
+            return true;
         } else {
-            // Manejar el caso cuando el supervisor no se encuentra, por ejemplo, añadiendo un mensaje de error.
-            return "redirect:/admin/error"; // Asegúrate de tener una ruta de error o ajusta según tu estructura.
+            return false;
         }
-        return "redirect:/admin/cargo";
     }
-
 }

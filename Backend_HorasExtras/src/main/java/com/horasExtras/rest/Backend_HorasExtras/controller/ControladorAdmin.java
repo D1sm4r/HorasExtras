@@ -6,70 +6,59 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.horasExtras.rest.Backend_HorasExtras.dto.AdminDTO;
 import com.horasExtras.rest.Backend_HorasExtras.service.IAdminService;
 
 @Controller
 @RequestMapping("admin")
-public class ControladorAdmin{
+public class ControladorAdmin {
 
     @Autowired
     private IAdminService servicio;
 
-    // http://localhost:8081/admin/listar/REST
-    @GetMapping("listar/REST")
-    public String listarREST(Model model) {
-        List<AdminDTO> admins = servicio.findAll();
-        model.addAttribute("admins", admins);
-        return "rest/index";
+    @ResponseBody
+    @PostMapping("REST")
+    public AdminDTO agregarAdmin(@Valid @NonNull @RequestBody AdminDTO dto) {
+        return servicio.save(dto);
     }
 
-    // http://localhost:8081/admin/listar/nuevo/REST
-    @GetMapping("listar/nuevo/REST")
-    public String agregarREST(Model model) {
-        model.addAttribute("admin", new AdminDTO());
-        return "rest/form";
+    @ResponseBody
+    @GetMapping("REST")
+    public List<AdminDTO> findAll() {
+        return servicio.findAll();
     }
 
-    // http://localhost:8081/admin/REST/id
-    @GetMapping("editar/REST/{id}")
-    public String editarREST(@PathVariable long id, Model model) {
-        Optional<AdminDTO> adminOpt = servicio.findById(id);
-        if (adminOpt.isPresent()) {
-            model.addAttribute("admin", adminOpt.get());
+    @ResponseBody
+    @GetMapping("REST/{id}")
+    public AdminDTO findById(@PathVariable("id") int id) {
+        Optional<AdminDTO> aDto = servicio.findById(id);
+        if (aDto.isPresent()) {
+            AdminDTO dto = aDto.get();
+            return dto;
         } else {
-            // Manejar el caso cuando el supervisor no se encuentra, por ejemplo, redirigiendo a una página de error o agregando un mensaje.
-            model.addAttribute("mensaje", "Admin no encontrado");
-            return "rest/error"; // Asegúrate de tener una vista 'error' o ajusta según tu estructura.
+            return null;
         }
-        return "rest/form";
     }
 
-    // http://localhost:8081/admin/grabar/REST
-    @PostMapping("grabar/REST")
-    public String saveREST(@Valid AdminDTO a, Model model) {
-        servicio.save(a);
-        return "redirect:/admin/admin";
-    }
-
-    // http://localhost:8081/admin/eliminar/id
-    @GetMapping("eliminar/REST/{id}")
-    public String deleteREST(@PathVariable long id, Model model) {
-        Optional<AdminDTO> adminOpt = servicio.findById(id);
-        if (adminOpt.isPresent()) {
-            servicio.delete(adminOpt.get());
+    @ResponseBody
+    @DeleteMapping("REST/{id}")
+    public boolean deleteAdminById(@PathVariable("id") int id) {
+        Optional<AdminDTO> aDto = servicio.findById(id);
+        if (aDto.isPresent()) {
+            servicio.delete(aDto.get());
+            return true;
         } else {
-            // Manejar el caso cuando el supervisor no se encuentra, por ejemplo, añadiendo un mensaje de error.
-            return "redirect:/admin/error"; // Asegúrate de tener una ruta de error o ajusta según tu estructura.
+            return false;
         }
-        return "redirect:/admin/admin";
     }
-
 }
