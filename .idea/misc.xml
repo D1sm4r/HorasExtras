@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/Backend_HorasExtras/pom.xml" />
         <option value="$PROJECT_DIR$/frontend/pom.xml" />
+        <option value="$PROJECT_DIR$/Frontend/pom.xml" />
       </list>
     </option>
   </component>

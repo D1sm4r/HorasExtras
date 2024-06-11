@@ -1,0 +1,24 @@
+
+k
+java:S1192<"IDefine a constant instead of duplicating this literal "personas" 3 times.(¿éêşıÿÿÿÿ8»‡ö«Ï1
+s	java:S117˜"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŠÔÚøÿÿÿÿ8¼‡ö«Ï1
+_
+java:S6813#"BRemove this field injection and use constructor injection instead.(êæÄŞ8ô‡ö«Ï1
+_
+java:S6813&"BRemove this field injection and use constructor injection instead.(êæÄŞ8ô‡ö«Ï1
+_
+java:S6813)"BRemove this field injection and use constructor injection instead.(êæÄŞ8ô‡ö«Ï1
+_
+java:S6813,"BRemove this field injection and use constructor injection instead.(êæÄŞ8ô‡ö«Ï1
+_
+java:S6813/"BRemove this field injection and use constructor injection instead.(êæÄŞ8ô‡ö«Ï1
+_
+java:S68132"BRemove this field injection and use constructor injection instead.(êæÄŞ8ô‡ö«Ï1
+V
+java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8˜ˆö«Ï1
+Z
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8˜ˆö«Ï1
+U
+java:S1128"3Remove this unused import 'javax.validation.Valid'.(æ¤ñ÷úÿÿÿÿ8˜ˆö«Ï1
+r
+java:S1128"PRemove this unused import 'org.springframework.web.bind.annotation.PostMapping'.(äƒà°ùÿÿÿÿ8˜ˆö«Ï1
