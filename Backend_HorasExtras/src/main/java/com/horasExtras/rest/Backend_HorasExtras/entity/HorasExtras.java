@@ -66,7 +66,7 @@ public class HorasExtras {
         dto.setJustificacion(this.getJustificacion());
         dto.setEstado(this.isEstado());
 
-        if (this.getEmpleado() != null) {
+        if (this.empleado!= null) {
             dto.setEmpleado(this.empleado.toDTO());
         }
 
@@ -74,7 +74,7 @@ public class HorasExtras {
             dto.setProyecto(this.proyecto.toDTO());
         }
 
-        if(this.getSupervisor() != null){
+        if(this.supervisor != null){
             dto.setSupervisor(this.supervisor.toDTO());
         }
 
