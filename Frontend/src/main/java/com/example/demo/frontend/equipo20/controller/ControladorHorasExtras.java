@@ -24,14 +24,14 @@ public class ControladorHorasExtras {
     public String listarREST(Model model) {
         List<HorasExtrasDTO> HorasExtrass = servicio.findAllREST();
         model.addAttribute("horasextrass", HorasExtrass);
-        return "AdminPage/index";
+        return "rest/aaaa";
     }
 
     // http://localhost:8081/horasextras/listar/nuevo/REST
     @GetMapping("listar/nuevo/REST")
     public String agregarREST(Model model) {
         model.addAttribute("horasextras", new HorasExtrasDTO());
-        return "rest/form";
+        return "rest/CrearHorasExtras";
     }
 
     // http://localhost:8081/horasextras/REST/id
@@ -39,14 +39,14 @@ public class ControladorHorasExtras {
     public String editarREST(@PathVariable long id, Model model) {
         HorasExtrasDTO HorasExtras = servicio.findByIdREST(id);
         model.addAttribute("horasextras", HorasExtras);
-        return "rest/form";
+        return "rest/ActualizarHorasExtras";
     }
 
     // http://localhost:8081/horasextras/grabar/REST
     @PostMapping("grabar/REST")
     public String saveREST(@Valid HorasExtrasDTO p, Model model) {
         servicio.saveREST(p);
-        return "redirect:/admin/horasextras";
+        return "redirect:/horasextras/listar/REST";
     }
 
     // http://localhost:8081/horasextras/eliminar/id

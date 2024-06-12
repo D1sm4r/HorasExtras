@@ -27,7 +27,7 @@ public class HorasExtrasServiceImpl implements IHorasExtrasService {
 			ObjectMapper unMapper = new ObjectMapper();
 
 			List<HorasExtrasDTO> listahoras = Arrays
-					.asList(unMapper.readValue(new URL("http://localhost:8080/horaextra/findAll"), HorasExtrasDTO[].class));
+					.asList(unMapper.readValue(new URL("http://localhost:8080/horasextras/findall"), HorasExtrasDTO[].class));
 			return listahoras;
 
 		} catch (IOException e) {
@@ -44,7 +44,7 @@ public class HorasExtrasServiceImpl implements IHorasExtrasService {
 
 			RestTemplate restTemplate = new RestTemplate();
 			ResponseEntity<HorasExtrasDTO> responseEntity = restTemplate
-					.getForEntity("http://localhost:8080/horaextra/findById" + "/" + id, HorasExtrasDTO.class);
+					.getForEntity("http://localhost:8080/horasextras/findById" + "/" + id, HorasExtrasDTO.class);
 
 			if (responseEntity.getStatusCode().is2xxSuccessful()) {
 				HorasExtrasDTO dto = responseEntity.getBody();
@@ -68,7 +68,7 @@ public class HorasExtrasServiceImpl implements IHorasExtrasService {
 			HttpEntity<HorasExtrasDTO> requestEntity = new HttpEntity<>(he, headers);
 
 			RestTemplate restTemplate = new RestTemplate();
-			ResponseEntity<HorasExtrasDTO> responseEntity = restTemplate.postForEntity("http://localhost:8080/horaextra/create",
+			ResponseEntity<HorasExtrasDTO> responseEntity = restTemplate.postForEntity("http://localhost:8080/horasextras/create",
 					requestEntity, HorasExtrasDTO.class);
 
 			if (responseEntity.getStatusCode().is2xxSuccessful()) {
@@ -92,12 +92,12 @@ public class HorasExtrasServiceImpl implements IHorasExtrasService {
 
 			RestTemplate restTemplate = new RestTemplate();
 			ResponseEntity<HorasExtrasDTO> responseEntity = restTemplate
-					.getForEntity("http://localhost:8080/horaextra/findById/"+ "/" + id, HorasExtrasDTO.class);
+					.getForEntity("http://localhost:8080/horasextras/findById/"+ "/" + id, HorasExtrasDTO.class);
 
 			if (responseEntity.getStatusCode().is2xxSuccessful()) {
 				HorasExtrasDTO dto = responseEntity.getBody();
 
-				restTemplate.delete("http://localhost:8080/horaextra/delete"+"/" + id);
+				restTemplate.delete("http://localhost:8080/horasextras/delete"+"/" + id);
 
 				return dto;
 			} else {
