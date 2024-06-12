@@ -1,6 +1,5 @@
 package com.example.demo.frontend.equipo20.service;
 
-import com.example.demo.frontend.equipo20.dto.PersonaDTO;
 import com.example.demo.frontend.equipo20.dto.SupervisorDTO;
 
 import java.util.List;

@@ -27,19 +27,19 @@ public class ControladorEmpleado {
     private IEmpleadoService servicio;
 
     @ResponseBody
-    @PostMapping("REST")
+    @PostMapping("create")
     public EmpleadoDTO agregarEmpleado(@Valid @NonNull @RequestBody EmpleadoDTO dto) {
         return servicio.save(dto);
     }
 
     @ResponseBody
-    @GetMapping("REST")
+    @GetMapping("findall")
     public List<EmpleadoDTO> findAll() {
         return servicio.findAll();
     }
 
     @ResponseBody
-    @GetMapping("REST/{id}")
+    @GetMapping("findById/{id}")
     public EmpleadoDTO findById(@PathVariable("id") int id) {
         Optional<EmpleadoDTO> eDto = servicio.findById(id);
         if (eDto.isPresent()) {
@@ -51,7 +51,7 @@ public class ControladorEmpleado {
     }
 
     @ResponseBody
-    @DeleteMapping("REST/{id}")
+    @DeleteMapping("delete/{id}")
     public boolean deleteEmpleadoById(@PathVariable("id") int id) {
         Optional<EmpleadoDTO> eDto = servicio.findById(id);
         if (eDto.isPresent()) {

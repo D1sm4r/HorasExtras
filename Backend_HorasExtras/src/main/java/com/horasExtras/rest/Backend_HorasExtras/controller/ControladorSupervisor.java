@@ -27,19 +27,19 @@ public class ControladorSupervisor {
     private ISupervisorService servicio;
 
     @ResponseBody
-    @PostMapping("REST")
+    @PostMapping("create")
     public SupervisorDTO agregarSupervisor(@Valid @NonNull @RequestBody SupervisorDTO dto) {
         return servicio.save(dto);
     }
 
     @ResponseBody
-    @GetMapping("REST")
+    @GetMapping("findall")
     public List<SupervisorDTO> findAll() {
         return servicio.findAll();
     }
 
     @ResponseBody
-    @GetMapping("REST/{id}")
+    @GetMapping("findById/{id}")
     public SupervisorDTO findById(@PathVariable("id") int id) {
         Optional<SupervisorDTO> sDto = servicio.findById(id);
         if (sDto.isPresent()) {
@@ -51,7 +51,7 @@ public class ControladorSupervisor {
     }
 
     @ResponseBody
-    @DeleteMapping("REST/{id}")
+    @DeleteMapping("delete/{id}")
     public boolean deleteSupervisorById(@PathVariable("id") int id) {
         Optional<SupervisorDTO> sDto = servicio.findById(id);
         if (sDto.isPresent()) {

@@ -27,19 +27,19 @@ public class ControladorAdmin {
     private IAdminService servicio;
 
     @ResponseBody
-    @PostMapping("REST")
+    @PostMapping("create")
     public AdminDTO agregarAdmin(@Valid @NonNull @RequestBody AdminDTO dto) {
         return servicio.save(dto);
     }
 
     @ResponseBody
-    @GetMapping("REST")
+    @GetMapping("findall")
     public List<AdminDTO> findAll() {
         return servicio.findAll();
     }
 
     @ResponseBody
-    @GetMapping("REST/{id}")
+    @GetMapping("findById/{id}")
     public AdminDTO findById(@PathVariable("id") int id) {
         Optional<AdminDTO> aDto = servicio.findById(id);
         if (aDto.isPresent()) {
@@ -51,7 +51,7 @@ public class ControladorAdmin {
     }
 
     @ResponseBody
-    @DeleteMapping("REST/{id}")
+    @DeleteMapping("delete/{id}")
     public boolean deleteAdminById(@PathVariable("id") int id) {
         Optional<AdminDTO> aDto = servicio.findById(id);
         if (aDto.isPresent()) {

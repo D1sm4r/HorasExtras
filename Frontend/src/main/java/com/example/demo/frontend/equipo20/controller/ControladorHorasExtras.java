@@ -24,7 +24,7 @@ public class ControladorHorasExtras {
     public String listarREST(Model model) {
         List<HorasExtrasDTO> HorasExtrass = servicio.findAllREST();
         model.addAttribute("horasextrass", HorasExtrass);
-        return "rest/index";
+        return "AdminPage/index";
     }
 
     // http://localhost:8081/horasextras/listar/nuevo/REST

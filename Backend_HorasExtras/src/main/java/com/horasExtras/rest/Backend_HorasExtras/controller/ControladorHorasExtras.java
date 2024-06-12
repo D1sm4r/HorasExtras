@@ -27,19 +27,19 @@ public class ControladorHorasExtras {
     private IHorasExtrasService servicio;
 
     @ResponseBody
-    @PostMapping("REST")
+    @PostMapping("create")
     public HorasExtrasDTO agregarHE(@Valid @NonNull @RequestBody HorasExtrasDTO dto) {
         return servicio.save(dto);
     }
 
     @ResponseBody
-    @GetMapping("REST")
+    @GetMapping("findall")
     public List<HorasExtrasDTO> findAll() {
         return servicio.findAll();
     }
 
     @ResponseBody
-    @GetMapping("REST/{id}")
+    @GetMapping("findById/{id}")
     public HorasExtrasDTO findById(@PathVariable("id") int id) {
         Optional<HorasExtrasDTO> heDto = servicio.findById(id);
         if (heDto.isPresent()) {
@@ -51,7 +51,7 @@ public class ControladorHorasExtras {
     }
 
     @ResponseBody
-    @DeleteMapping("REST/{id}")
+    @DeleteMapping("delete/{id}")
     public boolean deleteHEById(@PathVariable("id") int id) {
         Optional<HorasExtrasDTO> oDto = servicio.findById(id);
         if (oDto.isPresent()) {

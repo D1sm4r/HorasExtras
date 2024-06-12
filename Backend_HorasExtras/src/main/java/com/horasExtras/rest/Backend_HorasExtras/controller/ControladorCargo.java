@@ -27,19 +27,19 @@ public class ControladorCargo {
     private ICargoService servicio;
 
     @ResponseBody
-    @PostMapping("REST")
+    @PostMapping("create")
     public CargoDTO agregarCargo(@Valid @NonNull @RequestBody CargoDTO dto) {
         return servicio.save(dto);
     }
 
     @ResponseBody
-    @GetMapping("REST")
+    @GetMapping("findall")
     public List<CargoDTO> findAll() {
         return servicio.findAll();
     }
 
     @ResponseBody
-    @GetMapping("REST/{id}")
+    @GetMapping("findById/{id}")
     public CargoDTO findById(@PathVariable("id") int id) {
         Optional<CargoDTO> eDto = servicio.findById(id);
         if (eDto.isPresent()) {
@@ -51,7 +51,7 @@ public class ControladorCargo {
     }
 
     @ResponseBody
-    @DeleteMapping("REST/{id}")
+    @DeleteMapping("delete/{id}")
     public boolean deleteCargoById(@PathVariable("id") int id) {
         Optional<CargoDTO> eDto = servicio.findById(id);
         if (eDto.isPresent()) {

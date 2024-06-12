@@ -1,29 +1,29 @@
 package com.example.demo.frontend.equipo20.service;
 
-import com.example.demo.frontend.equipo20.dto.AdminDTO;
-import com.example.demo.frontend.equipo20.dto.SupervisorDTO;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.demo.frontend.equipo20.dto.SupervisorDTO;
+import com.fasterxml.jackson.databind.ObjectMapper;
 @Component
 @Service
 public class SupervisorServiceImpl implements ISupervisorService {
 
-    // Datos de ejemplo - inicio
-    private static final List<SupervisorDTO> supervisores = new ArrayList<>(Arrays.asList(
-            new SupervisorDTO(1L, "supervisor1", "123456", new AdminDTO(1L, "admin1", "password1")),
-            new SupervisorDTO(2L, "supervisor2", "abcdef", new AdminDTO(2L, "admin2", "password2")),
-            new SupervisorDTO(3L, "supervisor3", "password3", new AdminDTO(3L, "admin3", "password3"))
-    ));
-    // Datos de ejemplo - fin
 
     @Override
     public List<SupervisorDTO> findAllREST() {
-        /*try {
+        try {
 			ObjectMapper unMapper = new ObjectMapper();
 
 			List<SupervisorDTO> supervisores = Arrays
@@ -33,13 +33,12 @@ public class SupervisorServiceImpl implements ISupervisorService {
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
-		}*/
-        return supervisores;
+		}
     }
 
     @Override
     public SupervisorDTO findByIdREST(Long id) {
-        /*try {
+        try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -57,20 +56,16 @@ public class SupervisorServiceImpl implements ISupervisorService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
-		}*/
-        return supervisores.stream()
-                .filter(supervisor -> supervisor.getIdSupervisor() == id)
-                .findFirst()
-                .orElse(null);
+		}
     }
 
     @Override
     public SupervisorDTO saveREST(SupervisorDTO supervisor) {
-        /*try {
+        try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 
-			HttpEntity<SupervisorDTO> requestEntity = new HttpEntity<>(p, headers);
+			HttpEntity<SupervisorDTO> requestEntity = new HttpEntity<>(supervisor, headers);
 
 			RestTemplate restTemplate = new RestTemplate();
 			ResponseEntity<SupervisorDTO> responseEntity = restTemplate.postForEntity("http://localhost:8080/supervisor/create",
@@ -86,15 +81,12 @@ public class SupervisorServiceImpl implements ISupervisorService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
-		}*/
-        supervisor.setIdSupervisor(System.currentTimeMillis()); // Genera un ID único
-        supervisores.add(supervisor); // Agrega el supervisor a la lista
-        return supervisor;
+		}
     }
 
     @Override
     public SupervisorDTO deleteREST(Long id) {
-        /*try {
+        try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -115,11 +107,6 @@ public class SupervisorServiceImpl implements ISupervisorService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
-		}*/
-        SupervisorDTO supervisorToDelete = findByIdREST(id);
-        if (supervisorToDelete != null) {
-            supervisores.remove(supervisorToDelete);
-        }
-        return supervisorToDelete;
+		}
     }
 }

@@ -1,7 +1,6 @@
 package com.example.demo.frontend.equipo20.controller;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,17 +13,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.demo.frontend.equipo20.dto.PersonaDTO;
-import com.example.demo.frontend.equipo20.service.IPersonaService;
-
 @Controller
 @RequestMapping("Main")
 public class AdminPageController {
-	
+
+	/*
 	@Autowired
 	private IPersonaService bdpersona;
 
-	
+
 	@GetMapping("home")
 	public String home(Model model) {
 		return "AdminPage/starter";
@@ -53,7 +50,7 @@ public class AdminPageController {
 	public String deletepersona(@PathVariable Long id, Model model) {
 		bdpersona.deleteREST(id);
 		return "redirect:/admin/persona";
-	}
+	} */
 
 	///// PERSONA FIN
 

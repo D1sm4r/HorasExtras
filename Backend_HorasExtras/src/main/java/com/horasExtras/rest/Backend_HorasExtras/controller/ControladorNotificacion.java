@@ -27,19 +27,19 @@ public class ControladorNotificacion {
     private INotificacionService servicio;
 
     @ResponseBody
-    @PostMapping("REST")
+    @PostMapping("create")
     public NotificacionDTO agregarNotificacion(@Valid @NonNull @RequestBody NotificacionDTO dto) {
         return servicio.save(dto);
     }
 
     @ResponseBody
-    @GetMapping("REST")
+    @GetMapping("findall")
     public List<NotificacionDTO> findAll() {
         return servicio.findAll();
     }
 
     @ResponseBody
-    @GetMapping("REST/{id}")
+    @GetMapping("findById/{id}")
     public NotificacionDTO findById(@PathVariable("id") int id) {
         Optional<NotificacionDTO> nDto = servicio.findById(id);
         if (nDto.isPresent()) {
@@ -51,7 +51,7 @@ public class ControladorNotificacion {
     }
 
     @ResponseBody
-    @DeleteMapping("REST/{id}")
+    @DeleteMapping("delete/{id}")
     public boolean deleteNotificacionById(@PathVariable("id") int id) {
         Optional<NotificacionDTO> nDto = servicio.findById(id);
         if (nDto.isPresent()) {

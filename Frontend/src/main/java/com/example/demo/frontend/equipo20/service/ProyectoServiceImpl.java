@@ -1,30 +1,29 @@
 package com.example.demo.frontend.equipo20.service;
 
-import com.example.demo.frontend.equipo20.dto.ProyectoDTO;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.demo.frontend.equipo20.dto.ProyectoDTO;
+import com.fasterxml.jackson.databind.ObjectMapper;
 @Component
 @Service
 public class ProyectoServiceImpl implements IProyectoService {
 
-    // Datos de ejemplo - inicio
-    private static final List<ProyectoDTO> proyectos = new ArrayList<>(Arrays.asList(
-            new ProyectoDTO(1L, "Proyecto A"),
-            new ProyectoDTO(2L, "Proyecto B"),
-            new ProyectoDTO(3L, "Proyecto C"),
-            new ProyectoDTO(4L, "Proyecto D"),
-            new ProyectoDTO(5L, "Proyecto E")
-    ));
-    // Datos de ejemplo - fin
 
     @Override
     public List<ProyectoDTO> findAllREST() {
-        /*try {
+        try {
 			ObjectMapper unMapper = new ObjectMapper();
 
 			List<ProyectoDTO> proyectos = Arrays
@@ -34,13 +33,12 @@ public class ProyectoServiceImpl implements IProyectoService {
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
-		}*/
-        return proyectos;
+		}
     }
 
     @Override
     public ProyectoDTO findByIdREST(Long id) {
-        /*try {
+        try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -58,20 +56,16 @@ public class ProyectoServiceImpl implements IProyectoService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
-		}*/
-        return proyectos.stream()
-                .filter(proyecto -> proyecto.getIdProyecto() == id)
-                .findFirst()
-                .orElse(null);
+		}
     }
 
     @Override
     public ProyectoDTO saveREST(ProyectoDTO proyecto) {
-        /*try {
+        try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 
-			HttpEntity<ProyectoDTO> requestEntity = new HttpEntity<>(p, headers);
+			HttpEntity<ProyectoDTO> requestEntity = new HttpEntity<>(proyecto, headers);
 
 			RestTemplate restTemplate = new RestTemplate();
 			ResponseEntity<ProyectoDTO> responseEntity = restTemplate.postForEntity("http://localhost:8080/proyecto/create",
@@ -87,15 +81,12 @@ public class ProyectoServiceImpl implements IProyectoService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
-		}*/
-        proyecto.setIdProyecto(System.currentTimeMillis()); // Genera un ID único
-        proyectos.add(proyecto); // Agrega el proyecto a la lista
-        return proyecto;
+		}
     }
 
     @Override
     public ProyectoDTO deleteREST(Long id) {
-        /*try {
+        try {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 
@@ -116,11 +107,6 @@ public class ProyectoServiceImpl implements IProyectoService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
-		}*/
-        ProyectoDTO proyectoToDelete = findByIdREST(id);
-        if (proyectoToDelete != null) {
-            proyectos.remove(proyectoToDelete);
-        }
-        return proyectoToDelete;
+		}
     }
 }

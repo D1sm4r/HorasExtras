@@ -27,19 +27,19 @@ public class ControladorProyecto {
     private IProyectoService servicio;
 
     @ResponseBody
-    @PostMapping("REST")
+    @PostMapping("create")
     public ProyectoDTO agregarProyecto(@Valid @NonNull @RequestBody ProyectoDTO dto) {
         return servicio.save(dto);
     }
 
     @ResponseBody
-    @GetMapping("REST")
+    @GetMapping("findall")
     public List<ProyectoDTO> findAll() {
         return servicio.findAll();
     }
 
     @ResponseBody
-    @GetMapping("REST/{id}")
+    @GetMapping("findById/{id}")
     public ProyectoDTO findById(@PathVariable("id") int id) {
         Optional<ProyectoDTO> pDto = servicio.findById(id);
         if (pDto.isPresent()) {
@@ -51,7 +51,7 @@ public class ControladorProyecto {
     }
 
     @ResponseBody
-    @DeleteMapping("REST/{id}")
+    @DeleteMapping("delete/{id}")
     public boolean deleteProyectoById(@PathVariable("id") int id) {
         Optional<ProyectoDTO> pDto = servicio.findById(id);
         if (pDto.isPresent()) {
