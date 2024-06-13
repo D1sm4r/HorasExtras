@@ -25,7 +25,7 @@ public class ControladorEmpleado {
     public String listarREST(Model model) {
         List<EmpleadoDTO> empleados = servicio.findAllREST();
         model.addAttribute("empleados", empleados);
-        return "AdminPage/mantenedor_empleado";
+        return "Empleado/mantenedor_empleado";
     }
 
     // http://localhost:8081/empleado/listar/nuevo/REST

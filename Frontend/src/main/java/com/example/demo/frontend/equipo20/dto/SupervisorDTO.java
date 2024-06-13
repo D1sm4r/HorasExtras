@@ -13,7 +13,7 @@ public class SupervisorDTO {
 
     private String username;
 
-    private String contraseña;
+    private String password;
 
     //------------------------------------------------------------
 

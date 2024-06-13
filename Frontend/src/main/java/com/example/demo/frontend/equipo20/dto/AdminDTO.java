@@ -13,7 +13,7 @@ public class AdminDTO {
 
     private String username;
 
-    private String contraseña;
+    private String password;
 
     //------------------------------------------------------------
 

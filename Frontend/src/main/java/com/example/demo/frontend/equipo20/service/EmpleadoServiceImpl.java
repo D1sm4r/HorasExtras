@@ -27,7 +27,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 			ObjectMapper unMapper = new ObjectMapper();
 
 			List<EmpleadoDTO> empleados = Arrays
-					.asList(unMapper.readValue(new URL("http://localhost:8080/empleado/REST"), EmpleadoDTO[].class));
+					.asList(unMapper.readValue(new URL("http://localhost:8080/empleado/findall"), EmpleadoDTO[].class));
 			return empleados;
 
 		} catch (IOException e) {
@@ -44,7 +44,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 
 			RestTemplate restTemplate = new RestTemplate();
 			ResponseEntity<EmpleadoDTO> responseEntity = restTemplate
-					.getForEntity("http://localhost:8080/empleado/REST" + "/" + id, EmpleadoDTO.class);
+					.getForEntity("http://localhost:8080/empleado/findById" + "/" + id, EmpleadoDTO.class);
 
 			if (responseEntity.getStatusCode().is2xxSuccessful()) {
 				EmpleadoDTO dto = responseEntity.getBody();
@@ -68,7 +68,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 			HttpEntity<EmpleadoDTO> requestEntity = new HttpEntity<>(empleado, headers);
 
 			RestTemplate restTemplate = new RestTemplate();
-			ResponseEntity<EmpleadoDTO> responseEntity = restTemplate.postForEntity("http://localhost:8080/empleado/REST",
+			ResponseEntity<EmpleadoDTO> responseEntity = restTemplate.postForEntity("http://localhost:8080/empleado/create",
 					requestEntity, EmpleadoDTO.class);
 
 			if (responseEntity.getStatusCode().is2xxSuccessful()) {
@@ -92,12 +92,12 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 
 			RestTemplate restTemplate = new RestTemplate();
 			ResponseEntity<EmpleadoDTO> responseEntity = restTemplate
-					.getForEntity("http://localhost:8080/empleado/REST"+ "/" + id, EmpleadoDTO.class);
+					.getForEntity("http://localhost:8080/empleado/findById"+ "/" + id, EmpleadoDTO.class);
 
 			if (responseEntity.getStatusCode().is2xxSuccessful()) {
 				EmpleadoDTO dto = responseEntity.getBody();
 
-				restTemplate.delete("http://localhost:8080/empleado/REST"+"/" + id);
+				restTemplate.delete("http://localhost:8080/empleado/delete"+"/" + id);
 
 				return dto;
 			} else {

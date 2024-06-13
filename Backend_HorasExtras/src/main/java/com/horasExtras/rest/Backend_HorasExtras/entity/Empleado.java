@@ -18,8 +18,8 @@ public class Empleado {
     private long id;
     @Column(name = "nombre_usuario")
     private String username;
-    @Column(name = "contraseña")
-    private String contraseña;
+    @Column(name = "password")
+    private String password;
 
     //------------------------------------------------------------
 
@@ -34,18 +34,18 @@ public class Empleado {
     //------------------------------------------------------------
 
     public Empleado(@JsonProperty("id")long id, @JsonProperty("username") String username,
-                    @JsonProperty("contraseña") String contraseña){
+                    @JsonProperty("password") String password){
         super();
         this.id = id;
         this.username = username;
-        this.contraseña = contraseña;
+        this.password = password;
     }
 
     public EmpleadoDTO toDTO(){
         EmpleadoDTO dto = new EmpleadoDTO();
         dto.setId(this.getId());
         dto.setUsername(this.getUsername());
-        dto.setContraseña(this.getContraseña());
+        dto.setPassword(this.getPassword());
 
         if(this.cargo != null){
             dto.setCargo(this.getCargo().toDTO());

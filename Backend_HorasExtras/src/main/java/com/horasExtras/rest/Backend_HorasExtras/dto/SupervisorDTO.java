@@ -14,7 +14,7 @@ public class SupervisorDTO {
 
     private String username;
 
-    private String contraseña;
+    private String password;
 
     //------------------------------------------------------------
 
@@ -24,10 +24,10 @@ public class SupervisorDTO {
 
     public Supervisor toEntity() {
 
-        Supervisor e = new Supervisor(idSupervisor, username, contraseña);
+        Supervisor e = new Supervisor(idSupervisor, username, password);
         e.setIdSupervisor(this.getIdSupervisor());
         e.setUsername(this.getUsername());
-        e.setContraseña(this.getContraseña());
+        e.setPassword(this.getPassword());
 
         if (this.admin != null) {
             e.setAdmin(this.admin.toEntity());

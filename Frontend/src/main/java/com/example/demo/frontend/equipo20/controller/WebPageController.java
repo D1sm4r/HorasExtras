@@ -8,25 +8,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("webpage")
 public class WebPageController {
-	
-	// http://localhost:8081/persona/listar/REST
-		@GetMapping("login")
-		public String login() {
-			return "/WebPage/login";
-		}
-		
-	// http://localhost:8081/persona/listar/REST
-		@GetMapping("register")
-		public String register() {
-			return "/WebPage/register";
-		}
-		
-		
-		@GetMapping("home")
-		public String home(Model model) {
-			return "AdminPage/starter";
-		}
-		
 
+	@GetMapping("main")
+	public String home(Model model) {
+		return "WebPage/main";
+	}
 
+	@GetMapping("loginEmpleado")
+	public String loginEmpleado() {
+		return "Empleado/loginEmpleado";
+	}
+
+	@GetMapping("loginAdmin")
+	public String loginAdmin() {
+		return "Admin/loginAdmin";
+	}
+
+	@GetMapping("loginSupervisor")
+	public String loginSupervisor() {
+		return "Supervisor/loginSupervisor";
+	}
+
+	@GetMapping("register")
+	public String register() {
+		return "/WebPage/register";
+	}
 }

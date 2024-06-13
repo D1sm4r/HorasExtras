@@ -14,7 +14,7 @@ public class EmpleadoDTO {
 
     private String username;
 
-    private String contraseña;
+    private String password;
 
     //------------------------------------------------------------
 
@@ -25,10 +25,10 @@ public class EmpleadoDTO {
     //------------------------------------------------------------
 
     public Empleado toEntity(){
-        Empleado e = new Empleado(id, username, contraseña);
+        Empleado e = new Empleado(id, username, password);
         e.setId(this.getId());
         e.setUsername(this.getUsername());
-        e.setContraseña(this.getContraseña());
+        e.setPassword(this.getPassword());
 
         if(this.cargo != null) {
             e.setCargo(this.cargo.toEntity());
