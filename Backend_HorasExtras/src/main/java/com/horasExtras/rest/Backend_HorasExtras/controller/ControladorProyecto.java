@@ -8,13 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.horasExtras.rest.Backend_HorasExtras.dto.ProyectoDTO;
 import com.horasExtras.rest.Backend_HorasExtras.service.IProyectoService;
@@ -51,10 +45,21 @@ public class ControladorProyecto {
     }
 
     @ResponseBody
+    @PutMapping("update")
+    public ProyectoDTO updateProyecto(@Valid @NonNull @RequestBody ProyectoDTO dto) {
+        Optional<ProyectoDTO> oDto = servicio.findById(dto.getIdProyecto());
+        if (oDto.isPresent() == true) {
+            return servicio.save(dto);
+        }else{
+            return null;
+        }
+    }
+
+    @ResponseBody
     @DeleteMapping("delete/{id}")
     public boolean deleteProyectoById(@PathVariable("id") int id) {
         Optional<ProyectoDTO> pDto = servicio.findById(id);
-        if (pDto.isPresent()) {
+        if (pDto.isPresent() == true) {
             servicio.delete(pDto.get());
             return true;
         } else {

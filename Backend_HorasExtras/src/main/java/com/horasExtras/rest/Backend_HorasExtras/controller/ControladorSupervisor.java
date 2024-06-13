@@ -8,13 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.horasExtras.rest.Backend_HorasExtras.dto.SupervisorDTO;
 import com.horasExtras.rest.Backend_HorasExtras.service.ISupervisorService;
@@ -51,10 +45,21 @@ public class ControladorSupervisor {
     }
 
     @ResponseBody
+    @PutMapping("update")
+    public SupervisorDTO updateSupervisor(@Valid @NonNull @RequestBody SupervisorDTO dto) {
+        Optional<SupervisorDTO> aDto = servicio.findById(dto.getIdSupervisor());
+        if (aDto.isPresent() == true) {
+            return servicio.save(dto);
+        }else{
+            return null;
+        }
+    }
+
+    @ResponseBody
     @DeleteMapping("delete/{id}")
     public boolean deleteSupervisorById(@PathVariable("id") int id) {
         Optional<SupervisorDTO> sDto = servicio.findById(id);
-        if (sDto.isPresent()) {
+        if (sDto.isPresent() == true) {
             servicio.delete(sDto.get());
             return true;
         } else {

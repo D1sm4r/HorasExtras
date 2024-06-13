@@ -11,7 +11,7 @@ public interface IAdminService {
 
     public Optional<AdminDTO> findById(long id);
 
-    public AdminDTO save(AdminDTO admin);
+    public AdminDTO save(AdminDTO adminDTO);
 
     public void delete(AdminDTO dto);
 

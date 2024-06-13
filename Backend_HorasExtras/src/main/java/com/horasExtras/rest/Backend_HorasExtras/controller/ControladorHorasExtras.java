@@ -4,17 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.horasExtras.rest.Backend_HorasExtras.dto.HorasExtrasDTO;
 import com.horasExtras.rest.Backend_HorasExtras.service.IHorasExtrasService;
@@ -51,10 +46,21 @@ public class ControladorHorasExtras {
     }
 
     @ResponseBody
+    @PutMapping("update")
+    public HorasExtrasDTO updateHorasExtras(@Valid @NonNull @RequestBody HorasExtrasDTO dto) {
+        Optional<HorasExtrasDTO> oDto = servicio.findById(dto.getIdHorasExtras());
+        if (oDto.isPresent() == true) {
+            return servicio.save(dto);
+        }else{
+            return null;
+        }
+    }
+
+    @ResponseBody
     @DeleteMapping("delete/{id}")
     public boolean deleteHEById(@PathVariable("id") int id) {
         Optional<HorasExtrasDTO> oDto = servicio.findById(id);
-        if (oDto.isPresent()) {
+        if (oDto.isPresent() == true) {
             servicio.delete(oDto.get());
             return true;
         } else {

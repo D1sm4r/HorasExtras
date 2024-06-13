@@ -20,8 +20,10 @@ public class HorasExtras {
     private long idHorasExtras;
     @Column
     private int cantidad;
+    @Temporal(TemporalType.TIMESTAMP)
     @Column
     private Date fecha;
+    @Temporal(TemporalType.TIMESTAMP)
     @Column
     private Date fecha_de_autorizacion;
     @Column

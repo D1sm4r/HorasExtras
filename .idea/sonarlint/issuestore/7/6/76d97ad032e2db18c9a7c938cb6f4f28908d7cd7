@@ -1,0 +1,14 @@
+
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(äÓßŞûÿÿÿÿ8Ç˜£™2J$dd67bf1a-3a9e-495a-8328-d14351ab52aa
+
+java:S1488)"[Immediately return this expression instead of assigning it to the temporary variable "dto".(Ó˜èÙ8Ç˜£™2J$e42177e3-3888-4f3a-a999-d6c90c50a71b
+­
+java:S6833"eReplace the "@Controller" annotation by "@RestController" and remove all "@ResponseBody" annotations.(íœ¡ñùÿÿÿÿ8È˜£™2J$b79be819-fcc6-4b5a-895c-a4823303ca35
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8È˜£™2J$23df63d2-4a1f-469e-82f0-72ebb8e3d46a
+j
+java:S11254"'Remove the unnecessary boolean literal.(ƒ–»8³¹¤™2J$56f903a7-6a2f-414b-9e7f-98f628c6af43
+j
+java:S1125?"'Remove the unnecessary boolean literal.(ƒ–»8æí¤™2J$c03cd1b0-477e-4e2a-b088-b552254e6607
+‰
+java:S1128"ARemove this unused import 'javax.validation.constraints.NotNull'.(áç¥ãüÿÿÿÿ8Ë˜£™2J$bb5cb9c8-d1b6-4179-bbb3-8ed7992d2677
