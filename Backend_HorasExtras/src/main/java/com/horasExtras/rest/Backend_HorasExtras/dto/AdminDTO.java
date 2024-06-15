@@ -14,13 +14,15 @@ public class AdminDTO {
 
     private String username;
 
-    private String contraseña;
+    private String password;
+
+    //------------------------------------------------------------
 
     public Admin toEntity(){
-        Admin e = new Admin(idAdmin, username, contraseña);
+        Admin e = new Admin(idAdmin, username, password);
         e.setIdAdmin(this.getIdAdmin());
         e.setUsername(this.getUsername());
-        e.setContraseña(this.getContraseña());
+        e.setPassword(this.getPassword());
         return e;
     }
 }

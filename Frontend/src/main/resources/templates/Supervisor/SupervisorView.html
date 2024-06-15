@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>aaaaaaaaaaaaaa aaaaaaaaaaaaaa </h1>
+<div class="container">
+    <div class="row">
+        <h1>Listado horas extras</h1>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>IDHorasExtras</th>
+            <th>Cantidad</th>
+            <th>fecha</th>
+            <th>fecha de autorizacion</th>
+            <th>justificacion</th>
+            <th>estado</th>
+            <th>Actualizar informacion</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="horaextra, stat : ${horasextrass}">
+            <td th:text="${horaextra.idHorasExtras}">ID</td>
+            <td th:text="${horaextra.cantidad}">Cantidad</td>
+            <td th:text="${horaextra.fecha}">Fecha</td>
+            <td th:text="${horaextra.fecha_de_autorizacion}">Fecha_de_autorizacion</td>
+            <td th:text="${horaextra.justificacion}">Justificacion</td>
+            <td th:text="${horaextra.estado}">Estado</td>
+            <td>
+                <form th:action="@{/horasextras/editar/REST/{id}(id=${horaextra.idHorasExtras})}" method="GET">
+                    <button type="submit" class="btn btn-primary">Actualizar datos</button>
+                </form>
+            </td>
+        </tr>
+        <form th:action="@{/horasextras/listar/nuevo/REST}" method="GET">
+            <button type="submit" class="btn btn-success">CREAR</button>
+        </form>
+
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>

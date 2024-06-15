@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card-body">
+    <!-- FORM AGREGAR EMPLEADO-->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Agregar Empleado</h3>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/empleado/grabar/REST}" th:object="${empleado}" method="POST">
+                <div class="form-row ml-0">
+
+                    <div class="col">
+                        <input type="submit" value="Guardar" class="btn btn-success">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <!-- SEARCH FORM -->
+        <form class="form-inline mb-3">
+            <div class="input-group ml-4">
+                <input class="form-control" type="text" placeholder="Buscar por ID" id="searchById">
+            </div>
+            <div class="input-group ml-2">
+                <input class="form-control" type="text" placeholder="Buscar por Nombre" id="searchByName">
+            </div>
+            <div class="input-group ml-2">
+                <input class="form-control" type="text" placeholder="Buscar por Responsable" id="searchByResponsable">
+            </div>
+
+
+            <button type="button" class="btn btn-primary ml-2" onclick="applyFilters()">Buscar</button>
+        </form>
+        <!-- /END SEARCH-->
+
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>USERNAME</th>
+                <th>CONTRASEÑA</th>
+                <th>EDITAR/ELIMINAR</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Aquí deberías reemplazar este bloque con los datos de tu modelo de persona -->
+            <tr th:each="empleado, iterStat : ${empleados}">
+                <td th:text="${empleado.id}"></td>
+                <td th:text="${empleado.nombre}"></td>
+                <td th:text="${empleado.contraseña}"></td>
+                <td>
+                    <!--<a class="btn btn-warning" th:href="@{admin/especificarProyecto' + ${persona.id}}">Editar</a>-->
+                    <a class="btn btn-warning" th:href="@{editar/empleado/{id}(id=${empleado.id})}">Editar</a>
+                    <a class="btn btn-danger" th:href="@{eliminar/empleado/{id}(id=${empleado.id})}">Borrar</a>
+                </td>
+            </tr>
+            <!-- Fin del bloque a reemplazar -->
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>USERNAME</th>
+                <th>CONTRASEÑA</th>
+                <th>EDITAR/ELIMINAR</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+</body>
+</html>

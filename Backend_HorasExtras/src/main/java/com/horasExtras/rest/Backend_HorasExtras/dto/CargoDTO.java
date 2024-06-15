@@ -17,6 +17,8 @@ public class CargoDTO {
 
     private String saldo;
 
+    //------------------------------------------------------------
+
     public Cargo toEntity(){
         Cargo e = new Cargo(idCargo, name, saldo);
         e.setIdCargo(this.getIdCargo());

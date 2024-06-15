@@ -20,6 +20,8 @@ public class Cargo {
     @Column(name = "saldo")
     private String saldo;
 
+    //------------------------------------------------------------
+
     public CargoDTO toDTO() {
         CargoDTO dto = new CargoDTO();
         dto.setIdCargo(this.getIdCargo());

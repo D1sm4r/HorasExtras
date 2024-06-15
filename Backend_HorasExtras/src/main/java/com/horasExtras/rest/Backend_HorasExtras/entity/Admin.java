@@ -17,14 +17,16 @@ public class Admin {
     private long idAdmin;
     @Column(name = "nombre_usuario")
     private String username;
-    @Column(name = "contraseña")
-    private String contraseña;
+    @Column(name = "password")
+    private String password;
+
+    //------------------------------------------------------------
 
     public AdminDTO toDTO() {
         AdminDTO dto = new AdminDTO();
         dto.setIdAdmin(this.getIdAdmin());
         dto.setUsername(this.getUsername());
-        dto.setContraseña(this.getContraseña());
+        dto.setPassword(this.getPassword());
         return dto;
     }
 

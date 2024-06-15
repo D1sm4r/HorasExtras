@@ -1,3 +1,4 @@
 
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÁâèÅıÿÿÿÿJ$44db0b3e-6ad1-43e1-969f-64a91e341218
-–	java:S116"VRename this field "contraseÃ±a" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëôŒ¦ÿÿÿÿÿJ$09658158-2047-4527-ac7a-09d0b789f562
+“	java:S117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·êà¹8İ«çŸ€2J$fffbc4c0-abba-4f90-b765-f819dc68a17f
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÁâèÅıÿÿÿÿ8Ş«çŸ€2J$3864c670-4055-43b3-ad19-b69f10f50e02
+	java:S116"VRename this field "contraseÃ±a" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëôŒ¦ÿÿÿÿÿ8ß«çŸ€2J$9606022b-f0dc-4528-ba80-f2bba188336e
