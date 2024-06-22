@@ -34,16 +34,13 @@ public class HorasExtras {
     //------------------------------------------------------------
 
     @ManyToOne
-    @JoinColumn(name = "id_Empleado")
-    private Empleado empleado;
-
-    @ManyToOne
     @JoinColumn(name = "idProyecto")
     private Proyecto proyecto;
 
     @ManyToOne
-    @JoinColumn(name = "idSupervisor")
-    private Supervisor supervisor;
+    @JoinColumn(name = "idUser")
+    private UserEntity user;
+
 
     //------------------------------------------------------------
 
@@ -68,16 +65,12 @@ public class HorasExtras {
         dto.setJustificacion(this.getJustificacion());
         dto.setEstado(this.isEstado());
 
-        if (this.empleado!= null) {
-            dto.setEmpleado(this.empleado.toDTO());
-        }
-
         if(this.proyecto != null){
             dto.setProyecto(this.proyecto.toDTO());
         }
 
-        if(this.supervisor != null){
-            dto.setSupervisor(this.supervisor.toDTO());
+        if(this.user != null){
+            dto.setUser(this.user.toDTO());
         }
 
         return dto;

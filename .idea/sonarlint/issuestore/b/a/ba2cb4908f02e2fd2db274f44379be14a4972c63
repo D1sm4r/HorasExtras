@@ -1,7 +1,12 @@
 
-~
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞJ$48538863-8822-4f60-a4f8-25ddd2bd89d8
-w	java:S125+"<This block of commented-out lines of code should be removed.(òÆåJ$fa3ad5fb-f537-4918-b8ea-6bac1757f69b
-|	java:S1253"<This block of commented-out lines of code should be removed.(òıú†øÿÿÿÿJ$3092011f-e724-4e22-9774-7a75d67dccfc
+]	java:S125"<This block of commented-out lines of code should be removed.(‹ø‘¯üÿÿÿÿ8ııô2
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ııô2
+u
+java:S1128	"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8ııô2
+[
+java:S1128"9Remove this unused import 'org.springframework.ui.Model'.(ê†ıÿÿÿÿ8ııô2
 l
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒJ$3651abe2-8d29-47dd-ae90-70b8a3b4300b
+java:S1128"ORemove this unused import 'org.springframework.web.bind.annotation.GetMapping'.(‡¡‰Ø8ııô2
+s
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅşÿÿÿÿ8ııô2

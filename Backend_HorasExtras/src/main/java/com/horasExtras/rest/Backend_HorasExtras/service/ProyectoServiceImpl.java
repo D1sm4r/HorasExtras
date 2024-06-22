@@ -1,8 +1,6 @@
 package com.horasExtras.rest.Backend_HorasExtras.service;
 
-import com.horasExtras.rest.Backend_HorasExtras.dto.AdminDTO;
 import com.horasExtras.rest.Backend_HorasExtras.dto.ProyectoDTO;
-import com.horasExtras.rest.Backend_HorasExtras.entity.Admin;
 import com.horasExtras.rest.Backend_HorasExtras.entity.Proyecto;
 import com.horasExtras.rest.Backend_HorasExtras.repository.ProyectoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

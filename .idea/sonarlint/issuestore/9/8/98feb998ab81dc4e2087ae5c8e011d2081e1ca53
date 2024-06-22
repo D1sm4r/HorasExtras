@@ -1,12 +1,13 @@
 
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ³‰8Ã¦§€2J$118fefb5-d37e-40ff-9725-f4d34d2343f8
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İÉ¯É8Ã¦§€2J$bb5493fd-432c-4eb4-ad6b-5cb8de871267
-“	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëœŸÉ8Ã¦§€2J$8eb8da97-d609-42f8-acfc-435a19e1e9b1
-“	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ•ê8ı‚©§€2J$807e7d2f-5eca-46db-8917-9d563fc9a7ea
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï §8Ã¦§€2J$402c13a1-c48d-4798-88ad-0b7eb9b7dfa5
+“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ³‰8Ã¦§€2J$e36700ea-9fac-46f2-b8f9-1f5e36d265f9
+˜	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ„Œ²ÿÿÿÿÿ8Ÿì÷Ì‚2J$55f09eae-6630-4697-b82d-9d968013cee2
+“	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ•ê8ı‚©§€2J$e65b6a13-51fa-4fda-b1d0-34f4cfef1ac6
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï §8Ã¦§€2J$bb8e6438-844c-41ec-a4e2-6a941a7c0835
 ¡
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ’ĞÉøÿÿÿÿ8Ã¦§€2J$8cc6b2ac-da6b-4b5a-9b58-860f98db0785
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ’ĞÉøÿÿÿÿ8Ã¦§€2J$435474d2-5223-4324-bc65-e037a45ee509
+‡
+java:S3655*"DCall "oe.isPresent()" or "!oe.isEmpty()" before accessing the value.(ãÙÁ‰8úŒ‘Í‚2J$131effca-5a98-4adf-9188-563f6b81684b
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8‘Ã¦§€2J$53552daf-e9a5-4bd4-9141-b317792bfb35
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8‘Ã¦§€2J$f47527f1-eca5-4590-a28b-0c57e24ffebc
 o
-java:S1905"'Remove this unnecessary cast to "List".(ªšËÚşÿÿÿÿ8”Ã¦§€2J$90f4ba63-099c-4009-8468-34c54c2b3800
+java:S1905"'Remove this unnecessary cast to "List".(ªšËÚşÿÿÿÿ8ÿŒ‘Í‚2J$064a9189-8c10-4021-ade7-e794c1396500

@@ -1,10 +1,7 @@
 package com.horasExtras.rest.Backend_HorasExtras.service;
 
 import com.horasExtras.rest.Backend_HorasExtras.dto.HorasExtrasDTO;
-import com.horasExtras.rest.Backend_HorasExtras.entity.Empleado;
-import com.horasExtras.rest.Backend_HorasExtras.entity.HorasExtras;
-import com.horasExtras.rest.Backend_HorasExtras.entity.Proyecto;
-import com.horasExtras.rest.Backend_HorasExtras.entity.Supervisor;
+import com.horasExtras.rest.Backend_HorasExtras.entity.*;
 import com.horasExtras.rest.Backend_HorasExtras.repository.HorasExtrasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,19 +25,14 @@ public class HorasExtrasServiceImpl implements IHorasExtrasService {
         for (HorasExtras e : listE) {
             HorasExtrasDTO HorasExtrasDTO = e.toDTO();
 
-            Empleado Empleado = e.getEmpleado();
-            if (Empleado != null) {
-                HorasExtrasDTO.setEmpleado(Empleado.toDTO());
-            }
-
             Proyecto Proyecto = e.getProyecto();
             if (Proyecto != null) {
                 HorasExtrasDTO.setProyecto(Proyecto.toDTO());
             }
 
-            Supervisor Supervisor = e.getSupervisor();
-            if (Supervisor != null) {
-                HorasExtrasDTO.setSupervisor(Supervisor.toDTO());
+            UserEntity UserEntity = e.getUser();
+            if (UserEntity != null) {
+                HorasExtrasDTO.setUser(UserEntity.toDTO());
             }
 
             listDTO.add(HorasExtrasDTO);

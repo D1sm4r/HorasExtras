@@ -17,9 +17,7 @@ public class NotificacionDTO {
 
     //------------------------------------------------------------
 
-    private EmpleadoDTO empleado;
-
-    private SupervisorDTO supervisor;
+    private UserDTO user;
 
     //------------------------------------------------------------
 
@@ -29,12 +27,8 @@ public class NotificacionDTO {
         e.setIdNotificacion(this.getIdNotificacion());
         e.setMensaje(this.getMensaje());
 
-        if(this.supervisor != null) {
-            e.setSupervisor(this.supervisor.toEntity());
-        }
-
-        if(this.empleado != null) {
-            e.setEmpleado(this.empleado.toEntity());
+        if(this.user != null) {
+            e.setUser(this.user.toEntity());
         }
 
         return e;

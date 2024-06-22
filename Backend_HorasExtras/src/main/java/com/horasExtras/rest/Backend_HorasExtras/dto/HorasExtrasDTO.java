@@ -26,11 +26,10 @@ public class HorasExtrasDTO {
 
     //---------------------------------------------------------------
 
-    private EmpleadoDTO empleado;
+    private UserDTO user;
 
     private ProyectoDTO proyecto;
 
-    private SupervisorDTO supervisor;
 
     //---------------------------------------------------------------
 
@@ -44,16 +43,12 @@ public class HorasExtrasDTO {
         e.setJustificacion(this.getJustificacion());
         e.setEstado(this.isEstado());
 
-        if (this.empleado != null) {
-            e.setEmpleado(this.empleado.toEntity());
-        }
-
         if (this.proyecto != null) {
             e.setProyecto(this.proyecto.toEntity());
         }
 
-        if(this.supervisor != null){
-            e.setSupervisor(this.supervisor.toEntity());
+        if(this.user != null){
+            e.setUser(this.user.toEntity());
         }
 
         return e;

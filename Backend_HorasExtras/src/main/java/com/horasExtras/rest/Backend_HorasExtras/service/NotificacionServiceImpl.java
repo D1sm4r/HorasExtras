@@ -1,9 +1,8 @@
 package com.horasExtras.rest.Backend_HorasExtras.service;
 
 import com.horasExtras.rest.Backend_HorasExtras.dto.NotificacionDTO;
-import com.horasExtras.rest.Backend_HorasExtras.entity.Empleado;
 import com.horasExtras.rest.Backend_HorasExtras.entity.Notificacion;
-import com.horasExtras.rest.Backend_HorasExtras.entity.Supervisor;
+import com.horasExtras.rest.Backend_HorasExtras.entity.UserEntity;
 import com.horasExtras.rest.Backend_HorasExtras.repository.NotificacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,14 +26,9 @@ public class NotificacionServiceImpl implements INotificacionService {
         for (Notificacion e : listE) {
             NotificacionDTO NotificacionDTO = e.toDTO();
 
-            Empleado Empleado = e.getEmpleado();
-            if (Empleado != null) {
-                NotificacionDTO.setEmpleado(Empleado.toDTO());
-            }
-
-            Supervisor Supervisor = e.getSupervisor();
-            if (Supervisor != null) {
-                NotificacionDTO.setSupervisor(Supervisor.toDTO());
+            UserEntity UserEntity = e.getUser();
+            if (UserEntity != null) {
+                NotificacionDTO.setUser(UserEntity.toDTO());
             }
 
             listDto.add(NotificacionDTO);

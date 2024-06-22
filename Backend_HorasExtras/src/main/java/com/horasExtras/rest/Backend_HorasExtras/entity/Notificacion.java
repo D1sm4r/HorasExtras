@@ -22,12 +22,8 @@ public class Notificacion {
     //------------------------------------------------------------
 
     @ManyToOne
-    @JoinColumn(name = "idEmpleado")
-    private Empleado empleado;
-
-    @ManyToOne
-    @JoinColumn(name = "idSupervisor")
-    private Supervisor supervisor;
+    @JoinColumn(name = "idUser")
+    private UserEntity user;
 
     //------------------------------------------------------------
 
@@ -43,12 +39,8 @@ public class Notificacion {
         dto.setIdNotificacion(this.getIdNotificacion());
         dto.setMensaje(this.getMensaje());
 
-        if(this.supervisor != null) {
-            dto.setSupervisor(this.supervisor.toDTO());
-        }
-
-        if(this.empleado != null) {
-            dto.setEmpleado(this.empleado.toDTO());
+        if(this.user != null) {
+            dto.setUser(this.user.toDTO());
         }
 
         return dto;
