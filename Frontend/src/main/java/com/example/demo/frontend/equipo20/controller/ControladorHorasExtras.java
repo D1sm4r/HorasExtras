@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("horasextras")
+@RequestMapping("hs")
 public class ControladorHorasExtras {
     @Autowired
     private IHorasExtrasService servicio;

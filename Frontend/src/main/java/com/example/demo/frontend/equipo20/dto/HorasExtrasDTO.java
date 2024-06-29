@@ -1,5 +1,6 @@
 package com.example.demo.frontend.equipo20.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,15 +10,16 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class HorasExtrasDTO {
 
     private long idHorasExtras;
 
     private int cantidad;
 
-    private Date fecha;
+    private String fecha;
 
-    private Date fecha_de_autorizacion;
+    private String fecha_de_autorizacion;
 
     private String justificacion;
 
@@ -25,13 +27,8 @@ public class HorasExtrasDTO {
 
     //---------------------------------------------------------------
 
-    private EmpleadoDTO empleado;
+    private UserDTO user;
 
     private ProyectoDTO proyecto;
-
-    private SupervisorDTO supervisor;
-
-    //---------------------------------------------------------------
-
 
 }

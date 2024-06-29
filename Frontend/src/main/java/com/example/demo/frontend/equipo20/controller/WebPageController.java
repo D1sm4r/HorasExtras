@@ -1,19 +1,30 @@
 package com.example.demo.frontend.equipo20.controller;
 
+import com.example.demo.frontend.equipo20.service.IHorasExtrasService;
+import com.example.demo.frontend.equipo20.service.IProyectoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("webpage")
+@RequestMapping("GestorHorasExtras")
 public class WebPageController {
 
-	@GetMapping("main")
+	@Autowired
+	private IHorasExtrasService bdhs;
+
+	@Autowired
+	IProyectoService bdproyecto;
+
+	@GetMapping("")
 	public String home(Model model) {
 		return "WebPage/main";
 	}
 
+
+	//Logins de usuarios
 	@GetMapping("loginEmpleado")
 	public String loginEmpleado() {
 		return "Empleado/loginEmpleado";
@@ -29,8 +40,26 @@ public class WebPageController {
 		return "Supervisor/loginSupervisor";
 	}
 
-	@GetMapping("register")
-	public String register() {
-		return "/WebPage/register";
+	// Fin logins Usuarios
+	@GetMapping("Empleado")
+	public String Empleado(Model model) {
+		model.addAttribute("hs",bdhs.findAllREST());
+		return "Empleado/mantenedorEmpleado";
 	}
+
+	@GetMapping("Admin")
+	public String Admin(Model model) {
+		model.addAttribute("hs",bdhs.findAllREST());
+		//model.addAttribute("proyectos",bdproyecto.findAllREST());
+		return "Admin/mantenedorAdmin";
+	}
+
+	@GetMapping("Supervisor")
+	public String Supervisor(Model model) {
+		model.addAttribute("hs",bdhs.findAllREST());
+		return "Supervisor/mantenedorSupervisor";
+	}
+
+
+
 }
