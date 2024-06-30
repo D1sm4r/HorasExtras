@@ -23,7 +23,7 @@ public class HorasExtrasDTO {
 
     private String justificacion;
 
-    private boolean estado;
+    private String estado;
 
     //---------------------------------------------------------------
 

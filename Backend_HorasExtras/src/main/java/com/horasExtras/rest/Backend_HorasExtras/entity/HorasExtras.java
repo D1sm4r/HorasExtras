@@ -29,7 +29,7 @@ public class HorasExtras {
     @Column
     private String justificacion;
     @Column
-    private boolean estado;
+    private String estado;
 
     //------------------------------------------------------------
 
@@ -46,7 +46,7 @@ public class HorasExtras {
 
     public HorasExtras(@JsonProperty("idHorasExtras")long idHorasExtras, @JsonProperty("cantidad")int cantidad,
                        @JsonProperty("fecha")Date fecha, @JsonProperty("fecha_de_autorizacion")Date fecha_de_autorizacion,
-                       @JsonProperty("justificacion") String justificacion, @JsonProperty("estado")boolean estado){
+                       @JsonProperty("justificacion") String justificacion, @JsonProperty("estado")String estado){
         super();
         this.idHorasExtras = idHorasExtras;
         this.cantidad = cantidad;
@@ -63,7 +63,7 @@ public class HorasExtras {
         dto.setFecha(this.getFecha());
         dto.setFecha_de_autorizacion(this.getFecha_de_autorizacion());
         dto.setJustificacion(this.getJustificacion());
-        dto.setEstado(this.isEstado());
+        dto.setEstado(this.estado);
 
         if(this.proyecto != null){
             dto.setProyecto(this.proyecto.toDTO());

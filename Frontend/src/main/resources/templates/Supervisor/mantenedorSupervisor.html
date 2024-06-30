@@ -290,6 +290,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <!-- Buscar la persona correspondiente al orgpersonaId del proyecto -->
                       <!--<span th:each="persona : ${personas}" th:if="${persona.id == proyecto.orgpersonaId}" th:text="${persona.nombre}"></span>-->
                     </td>
+                    <td>
+                      <!--<a class="btn btn-warning" th:href="@{admin/especificarProyecto' + ${persona.id}}">Editar</a>-->
+                      <a class="btn btn-warning" href="#"
+                         th:onclick="'openPopup(\'/GestorHorasExtras/Supervisor/EditarHS/' + ${horaextra.idHorasExtras} + '\'); return false;'">
+                        Editar
+                      </a>
+                      <a class="btn btn-danger" th:href="@{eliminar/proyecto/{id}(id=${horaextra.idHorasExtras})}">Borrar</a>
+                    </td>
                   </tr>
                   <!-- Fin del bloque a reemplazar -->
                   </tbody>
@@ -366,6 +374,89 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script th:src="@{/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.html5.min.js}"></script>
 <script th:src="@{/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.print.min.js}"></script>
 <script th:src="@{/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.colVis.min.js}"></script>
+
+<!-- Script para abrir el popup -->
+<script th:inline="javascript">
+  function openPopup(url) {
+    // Obtener las dimensiones de la ventana principal
+    var parentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var parentHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    // Definir las dimensiones del popup
+    var popupWidth = 600;
+    var popupHeight = 900;
+
+    // Calcular las coordenadas para centrar el popup
+    var left = (parentWidth - popupWidth) / 2;
+    var top = (parentHeight - popupHeight) / 2;
+
+    // Abrir el popup en el centro
+    var popupWindow = window.open(url, '_blank', 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + left + ',top=' + top + ',scrollbars=yes,toolbar=no,location=no');
+
+    // Agregar un evento para detectar cuando se cierra la ventana emergente
+    if (popupWindow) {
+      popupWindow.addEventListener('beforeunload', function () {
+        // Recargar la página principal cuando se cierra la ventana emergente
+        location.reload();
+      });
+    }
+  }
+</script>
+
+<!-- Script para abrir el popup -->
+<script th:inline="javascript">
+  function openPopup(url) {
+    // Obtener las dimensiones de la ventana principal
+    var parentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var parentHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    // Definir las dimensiones del popup
+    var popupWidth = 600;
+    var popupHeight = 900;
+
+    // Calcular las coordenadas para centrar el popup
+    var left = (parentWidth - popupWidth) / 2;
+    var top = (parentHeight - popupHeight) / 2;
+
+    // Abrir el popup en el centro
+    var popupWindow = window.open(url, '_blank', 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + left + ',top=' + top + ',scrollbars=yes,toolbar=no,location=no');
+
+    // Agregar un evento para detectar cuando se cierra la ventana emergente
+    if (popupWindow) {
+      popupWindow.addEventListener('beforeunload', function () {
+        // Recargar la página principal cuando se cierra la ventana emergente
+        location.reload();
+      });
+    }
+  }
+</script>
+
+<script th:inline="javascript">
+  /*<![SCRIPT QUE RESETEA LA PAGINA DESPUES DE USAR UN FORMULARIO[*/
+  /*<![CDATA[*/
+  $(document).ready(function() {
+    $('form').submit(function(e) {
+      e.preventDefault(); // Prevenir el envío normal del formulario
+
+      $.ajax({
+        type: $(this).attr('method'),
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        success: function(response) {
+          // Recargar la página después de un breve retraso (por ejemplo, 500 ms)
+          setTimeout(function() {
+            location.reload();
+          }, 500);
+        },
+        error: function(error) {
+          console.log(error);
+          // Manejar errores si es necesario
+        }
+      });
+    });
+  });
+  /*]]>*/
+</script>
 
 <script>
   $(function () {

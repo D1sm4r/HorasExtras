@@ -1,11 +1,14 @@
 package com.example.demo.frontend.equipo20.controller;
 
+import com.example.demo.frontend.equipo20.dto.HorasExtrasDTO;
 import com.example.demo.frontend.equipo20.service.IHorasExtrasService;
+import com.example.demo.frontend.equipo20.service.INotificacionService;
 import com.example.demo.frontend.equipo20.service.IProyectoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -17,6 +20,9 @@ public class WebPageController {
 
 	@Autowired
 	IProyectoService bdproyecto;
+
+	@Autowired
+	INotificacionService bdnotificacion;
 
 	@GetMapping("")
 	public String home(Model model) {
@@ -43,6 +49,8 @@ public class WebPageController {
 	// Fin logins Usuarios
 	@GetMapping("Empleado")
 	public String Empleado(Model model) {
+		model.addAttribute("notificaciones",bdnotificacion.findAllREST());
+		bdnotificacion.findAllREST().toString();
 		model.addAttribute("hs",bdhs.findAllREST());
 		return "Empleado/mantenedorEmpleado";
 	}
@@ -59,6 +67,13 @@ public class WebPageController {
 		model.addAttribute("hs",bdhs.findAllREST());
 		return "Supervisor/mantenedorSupervisor";
 	}
+
+	@GetMapping("Supervisor/EditarHS/{id}")
+	public String EditarHS(@PathVariable Long id, Model model) {
+		model.addAttribute("horaextra", bdhs.findByIdREST(id));
+		return "Supervisor/hs";
+	}
+
 
 
 

@@ -22,4 +22,12 @@ public class NotificacionDTO {
     //------------------------------------------------------------
 
 
+    @Override
+    public String toString() {
+        return "NotificacionDTO{" +
+                "idNotificacion=" + idNotificacion +
+                ", mensaje='" + mensaje + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }

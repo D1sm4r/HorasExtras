@@ -22,7 +22,7 @@ public class HorasExtrasDTO {
 
     private String justificacion;
 
-    private boolean estado;
+    private String estado;
 
     //---------------------------------------------------------------
 
@@ -41,7 +41,7 @@ public class HorasExtrasDTO {
         e.setFecha(this.getFecha());
         e.setFecha_de_autorizacion(this.getFecha_de_autorizacion());
         e.setJustificacion(this.getJustificacion());
-        e.setEstado(this.isEstado());
+        e.setEstado(this.estado);
 
         if (this.proyecto != null) {
             e.setProyecto(this.proyecto.toEntity());

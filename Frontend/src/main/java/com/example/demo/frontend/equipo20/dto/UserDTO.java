@@ -18,10 +18,10 @@ public class UserDTO {
     private String username;
     private String password;
     //-----------------------------------------------------------
-    private boolean isEnabled;
-    private boolean accountNonExpired;
-    private boolean credentialsNonExpired;
-    private boolean accountNonLocked;
+    //private boolean isEnabled;
+    //private boolean accountNonExpired;
+    //private boolean credentialsNonExpired;
+    //private boolean accountNonLocked;
     private Set<RoleDTO> roles;
     private CargoDTO cargo;
 
