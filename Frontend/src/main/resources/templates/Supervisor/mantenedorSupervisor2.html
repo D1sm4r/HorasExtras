@@ -207,13 +207,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Horas Extras de Trabajadores</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="#" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Horas Extras de proyectos</p>
                 </a>
@@ -269,11 +269,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tr>
                     <!--<th>ID</th>-->
                     <th>ID</th>
+                    <th>Proyecto</th>
                     <th>CANTIDAD</th>
                     <th>ESTADO</th>
                     <th>FECHA DE AUTORIZACION</th>
                     <th>FECHA DE LA HORA EXTRA</th>
                     <th>JUSTIFICACION</th>
+                    <th>NOMBRE DE PROYECTOS</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -281,6 +283,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tr th:each="horaextra, iterStat : ${hs}">
                     <!--<td th:text="${proyecto.id}"></td>-->
                     <td th:text="${horaextra.idHorasExtras}"></td>
+                    <td th:text="${horaextra.proyecto.name}"></td>
                     <td th:text="${horaextra.cantidad}"></td>
                     <td th:text="${horaextra.estado}"></td>
                     <td th:text="${horaextra.fecha_de_autorizacion}"></td>

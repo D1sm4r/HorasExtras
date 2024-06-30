@@ -3,12 +3,10 @@ package com.example.demo.frontend.equipo20.controller;
 import com.example.demo.frontend.equipo20.dto.HorasExtrasDTO;
 import com.example.demo.frontend.equipo20.service.IHorasExtrasService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -48,6 +46,18 @@ public class ControladorHorasExtras {
         servicio.saveREST(p);
         return "redirect:/horasextras/listar/REST";
     }
+
+    // http://localhost:8081/horasextras/grabar/REST
+    @PostMapping("grabar2/REST")
+    public ResponseEntity<String> saveREST2(@Valid @RequestBody HorasExtrasDTO p) {
+        try {
+            servicio.saveREST(p);
+            return ResponseEntity.ok("Horas Extras guardadas con éxito");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al guardar Horas Extras");
+        }
+    }
+
 
     // http://localhost:8081/horasextras/eliminar/id
     @GetMapping("eliminar/REST/{id}")

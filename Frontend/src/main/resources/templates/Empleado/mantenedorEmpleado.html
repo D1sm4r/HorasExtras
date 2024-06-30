@@ -127,7 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <!--<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-header" th:text="${notificaciones.size()} + ' Notifications'"></span>
           <div class="dropdown-divider"></div>
           <div th:each="notificacion : ${notificaciones}">
@@ -138,7 +138,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="dropdown-divider"></div>
           </div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
+        </div>-->
       </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -278,10 +278,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td th:text="${horaextra.fecha_de_autorizacion}"></td>
                     <td th:text="${horaextra.fecha}"></td>
                     <td th:text="${horaextra.justificacion}"></td>
-                    <td>
-                      <!-- Buscar la persona correspondiente al orgpersonaId del proyecto -->
-                      <!--<span th:each="persona : ${personas}" th:if="${persona.id == proyecto.orgpersonaId}" th:text="${persona.nombre}"></span>-->
-                    </td>
                   </tr>
                   <!-- Fin del bloque a reemplazar -->
                   </tbody>

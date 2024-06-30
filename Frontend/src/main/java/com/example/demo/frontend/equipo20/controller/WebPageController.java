@@ -49,8 +49,7 @@ public class WebPageController {
 	// Fin logins Usuarios
 	@GetMapping("Empleado")
 	public String Empleado(Model model) {
-		model.addAttribute("notificaciones",bdnotificacion.findAllREST());
-		bdnotificacion.findAllREST().toString();
+		//model.addAttribute("notificaciones",bdnotificacion.findAllREST());
 		model.addAttribute("hs",bdhs.findAllREST());
 		return "Empleado/mantenedorEmpleado";
 	}
@@ -62,10 +61,24 @@ public class WebPageController {
 		return "Admin/mantenedorAdmin";
 	}
 
+	@GetMapping("Admin2")
+	public String Admin2(Model model) {
+		model.addAttribute("hs",bdhs.findAllREST());
+		model.addAttribute("proyectos",bdproyecto.findAllREST());
+		return "Admin/mantenedorAdmin2";
+	}
+
 	@GetMapping("Supervisor")
 	public String Supervisor(Model model) {
 		model.addAttribute("hs",bdhs.findAllREST());
 		return "Supervisor/mantenedorSupervisor";
+	}
+
+	@GetMapping("Supervisor2")
+	public String Supervisor2(Model model) {
+		model.addAttribute("hs",bdhs.findAllREST());
+		model.addAttribute("proyectos",bdproyecto.findAllREST());
+		return "Supervisor/mantenedorSupervisor2";
 	}
 
 	@GetMapping("Supervisor/EditarHS/{id}")

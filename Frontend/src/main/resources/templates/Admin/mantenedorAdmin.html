@@ -193,7 +193,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a th:href="@{/GestorHorasExtras}" class="brand-link">
       <span class="brand-text font-weight-light">Gestion de Horas Extras</span>
     </a>
 
@@ -235,15 +235,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a th:href="@{/GestorHorasExtras/Admin}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Horas Extras de Trabajadores</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a th:href="@{/GestorHorasExtras/Admin2}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Horas Extras de proyectos</p>
+                  <p>Horas Extras de Proyectos</p>
                 </a>
               </li>
             </ul>
@@ -292,7 +292,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-6">
             <div class="card">
               <div class="card-body">
-                <table id="Example1" class="table table-bordered table-striped">
+                <table id="listarhs" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <!--<th>ID</th>-->
@@ -314,10 +314,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td th:text="${horaextra.fecha_de_autorizacion}"></td>
                     <td th:text="${horaextra.fecha}"></td>
                     <td th:text="${horaextra.justificacion}"></td>
-                    <td>
-                      <!-- Buscar la persona correspondiente al orgpersonaId del proyecto -->
-                      <!--<span th:each="persona : ${personas}" th:if="${persona.id == proyecto.orgpersonaId}" th:text="${persona.nombre}"></span>-->
-                    </td>
                   </tr>
                   <!-- Fin del bloque a reemplazar -->
                   </tbody>
@@ -378,42 +374,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- Bootstrap 4 -->
 <script th:src="@{/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
-<!-- Bootstrap Switch -->
-<script th:src="@{/AdminLTE-3.2.0/plugins/bootstrap-switch/js/bootstrap-switch.min.js}"></script>
-
-<!-- Select2 -->
-<script th:src="@{/AdminLTE-3.2.0/plugins/select2/js/select2.full.min.js}"></script>
-
-<!-- Bootstrap4 Duallistbox -->
-<script th:src="@{/AdminLTE-3.2.0/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js}"></script>
-
-<!-- InputMask -->
-<script th:src="@{/AdminLTE-3.2.0/plugins/moment/moment.min.js}"></script>
-<script th:src="@{/AdminLTE-3.2.0/plugins/inputmask/jquery.inputmask.min.js}"></script>
-
-<!-- Date Range Picker JS -->
-<script th:src="@{/AdminLTE-3.2.0/plugins/moment/moment.min.js}"></script>
-<script th:src="@{/AdminLTE-3.2.0/plugins/daterangepicker/daterangepicker.js}"></script>
-
-<!-- bootstrap color picker -->
-<script th:src="@{/AdminLTE-3.2.0/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js}"></script>
-
-<!-- Tempusdominus Bootstrap 4 -->
-<script th:src="@{/AdminLTE-3.2.0/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js}"></script>
-
-<!-- BS-Stepper -->
-<script th:src="@{/AdminLTE-3.2.0/plugins/bs-stepper/js/bs-stepper.min.js}"></script>
-
-<!-- dropzonejs -->
-<script th:src="@{/AdminLTE-3.2.0/plugins/dropzone/min/dropzone.min.js}"></script>
-
 <!-- AdminLTE App -->
 <script th:src="@{/AdminLTE-3.2.0/dist/js/adminlte.min.js}"></script>
 
-<!-- OPTIONAL SCRIPTS -->
-<script th:src="@{/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js}"></script>
-
-<!-- DataTables & Plugins -->
+<!-- DataTables  & Plugins -->
 <script th:src="@{/AdminLTE-3.2.0/plugins/datatables/jquery.dataTables.min.js}"></script>
 <script th:src="@{/AdminLTE-3.2.0/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js}"></script>
 <script th:src="@{/AdminLTE-3.2.0/plugins/datatables-responsive/js/dataTables.responsive.min.js}"></script>
@@ -426,336 +390,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script th:src="@{/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.html5.min.js}"></script>
 <script th:src="@{/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.print.min.js}"></script>
 <script th:src="@{/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.colVis.min.js}"></script>
-<!-- AdminLTE for demo purposes -->
-<!-- hola -->
-<!-- Page specific script -->
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
-
-<script>
-  $('#reservationdatetime').datetimepicker({
-    icons: { time: 'far fa-clock' },
-    format: 'YYYY-MM-DDTHH:mm:ss',
-    // Opciones adicionales si es necesario
-  });
-
-</script>
-
-
-<script>
-  $('#reservationdatetime2').datetimepicker({
-    icons: { time: 'far fa-clock' },
-    format: 'YYYY-MM-DDTHH:mm:ss',
-    // Opciones adicionales si es necesario
-  });
-
-</script>
-
-<script>
-  $(document).ready(function () {
-    function updateCharCount() {
-      var maxLength = 255;
-      var currentLength = $('.descripcion').val().length;
-
-      // Manejar saltos de línea como un solo carácter
-      var lineBreaks = ($('.descripcion').val().match(/\r?\n/g) || []).length;
-      currentLength += lineBreaks;
-
-      var remainingChars = maxLength - currentLength; // Ajustar para que no sea negativo
-
-      var countValueElement = $('.countValue');
-      countValueElement.text(remainingChars);
-
-      // Cambiar el color a naranjo cuando llegue a 0 y a rojo si es negativo
-      if (remainingChars <= 0) {
-        countValueElement.css('color', remainingChars < 0 ? 'red' : 'orange');
-      } else {
-        countValueElement.css('color', ''); // Restablecer el color a su estado original
-      }
-    }
-
-    $('.descripcion').on('input', function () {
-      updateCharCount();
-    });
-
-    // Llamar a la función al cargar la página para establecer el valor inicial
-    updateCharCount();
-  });
-</script>
-
-<script>
-  $(document).ready(function () {
-    // Inicialización de DataTables
-    var table = $('#ACT').DataTable();
-    var percentageFilter = null; // Variable para almacenar la función de filtro personalizada
-
-    // Aplicar filtros al hacer clic en el botón de búsqueda
-    window.applyFiltersACT = function () {
-      var searchByNameAct = $('#searchByNameAct').val();
-      var searchByResponsable = $('#searchByResponsable').val();
-      var searchByOEAct = $('#searchByOEAct').val();
-      var PAO = $('#PAO').val();
-      var searchByPercentage = $('#searchByPercentage').val();
-
-      // Limpiar los filtros existentes
-      table.columns().search('').draw();
-
-      // Eliminar cualquier función de filtro personalizada existente
-      if (percentageFilter !== null) {
-        $.fn.dataTable.ext.search.splice($.fn.dataTable.ext.search.indexOf(percentageFilter), 1);
-        percentageFilter = null;
-      }
-
-      // Aplicar los filtros a las columnas respectivas
-      table.column(0).search(searchByNameAct);
-      table.column(8).search(searchByResponsable);
-      table.column(2).search(searchByOEAct);
-      table.column(5).search(PAO);
-
-      // Aplicar el filtro personalizado para el porcentaje si se proporciona un valor de búsqueda
-      if (searchByPercentage !== '') {
-        // Obtener el rango de porcentaje
-        var range = searchByPercentage.split('-');
-        var minPercentage = parseInt(range[0]);
-        var maxPercentage = parseInt(range[1]);
-
-        // Crear la función de filtro personalizada para el porcentaje
-        percentageFilter = function (settings, data, dataIndex) {
-          var percentage = parseFloat(data[6]);
-          return (isNaN(minPercentage) || percentage >= minPercentage) && (isNaN(maxPercentage) || percentage <= maxPercentage);
-        };
-
-        // Agregar la función de filtro personalizada
-        $.fn.dataTable.ext.search.push(percentageFilter);
-      }
-
-      // Redibujar la tabla con los filtros aplicados
-      table.draw();
-    };
-  });
-</script>
-
-
-
-
-<script>
-  $(document).ready(function () {
-    // Función para actualizar el contador de caracteres en tiempo real para la descripción de Actividad
-    function updateCharCountActividad() {
-      var maxLength = 255;
-      var currentLength = $('.descripcionActividad').val().length;
-
-      // Manejar saltos de línea como un solo carácter
-      var lineBreaks = ($('.descripcionActividad').val().match(/\r?\n/g) || []).length;
-      currentLength += lineBreaks;
-
-      var remainingChars = maxLength - currentLength; // Ajustar para que no sea negativo
-
-      var countValueElement = $('.countValueActividad');
-      countValueElement.text(remainingChars);
-
-      // Cambiar el color a naranjo cuando llegue a 0 y a rojo si es negativo
-      if (remainingChars <= 0) {
-        countValueElement.css('color', remainingChars < 0 ? 'red' : 'orange');
-      } else {
-        countValueElement.css('color', ''); // Restablecer el color a su estado original
-      }
-    }
-
-    // Agregar evento de entrada a la casilla de descripción de Actividad
-    $('.descripcionActividad').on('input', function () {
-      updateCharCountActividad();
-    });
-
-    // Llamar a la función al cargar la página para establecer el valor inicial
-    updateCharCountActividad();
-  });
-</script>
-<script>
-  $(document).ready(function () {
-    var table = $('#example1').DataTable();
-
-    // Elimina la instancia DataTable existente
-    if ($.fn.DataTable.isDataTable('#example1')) {
-      table.destroy();
-    }
-
-    table = $('#example1').DataTable({
-      // Otras opciones de DataTables...
-      lengthMenu: [2, 10, 25, 50], // Opciones de cantidad de entradas
-      pageLength: 10 // Cantidad predeterminada de entradas por página
-    });
-
-
-    // Aplicar filtros al hacer clic en el botón de búsqueda
-    window.applyFilters = function () {
-      var searchByName = $('#searchByName').val();
-      var searchByPersona = $('#searchByPersona').val();
-      var incluirenpao = $('#PAO').val();
-      var searchByObjetivo = $('#searchByObjetivo').val();
-      var searchByProyecto = $('#searchByProyecto').val();
-
-      table.columns(1).search(searchByName).columns(8).search(searchByPersona).columns(5).search(incluirenpao).columns(9).search(searchByObjetivo).columns(0).search(searchByProyecto).draw();
-    };
-
-    // Aplicar filtros al hacer clic en el botón de búsqueda
-    window.applyFiltersLA = function () {
-      var searchByLineaLA = $('#searchByLineaLA').val();
-      var searchByDescripcionLA = $('#searchByDescripcionLA').val();
-
-
-      table.columns(0).search(searchByLineaLA).columns(1).search(searchByDescripcionLA).draw();
-    };
-
-  });
-</script>
-<script>
-  $(document).ready(function () {
-    // Inicialización de DataTables
-    var table = $('#OE').DataTable();
-
-    // Aplicar filtros al hacer clic en el botón de búsqueda
-    window.applyFiltersOE = function () {
-      var searchByNameOE = $('#searchByNameOE').val();
-      var searchByAliasOE = $('#searchByAliasOE').val();
-      var searchByLinea = $('#searchByLinea').val();
-
-      table.columns(0).search(searchByNameOE).columns(1).search(searchByAliasOE).columns(5).search(searchByLinea).draw();
-    };
-  });
-</script>
-
-
-<script>
-  $(document).ready(function () {
-    var table = $('#example2').DataTable();
-
-    // Elimina la instancia DataTable existente
-    if ($.fn.DataTable.isDataTable('#example2')) {
-      table.destroy();
-    }
-
-    table = $('#example2').DataTable({
-      // Otras opciones de DataTables...
-      lengthMenu: [25, 50, 100, 200], // Opciones de cantidad de entradas
-      pageLength: 100 // Cantidad predeterminada de entradas por página
-    });
-
-    // Función para ordenar la tabla por fecha de inicio ascendente
-    function ordenarPorFechaInicioAscendente() {
-      var table, rows, switching, i, x, y, shouldSwitch;
-      table = document.getElementById("example2");
-      switching = true;
-      // Realizar un bucle hasta que no haya cambios en el orden
-      while (switching) {
-        switching = false;
-        rows = table.rows;
-        // Iniciar desde la segunda fila para evitar el encabezado
-        for (i = 1; i < (rows.length - 1); i++) {
-          shouldSwitch = false;
-          x = rows[i].getElementsByTagName("TD")[4]; // Columna de fecha de inicio
-          y = rows[i + 1].getElementsByTagName("TD")[4]; // Siguiente fila, misma columna
-          // Compara las fechas como cadenas en formato yyyy-mm-dd
-          if (x.innerHTML > y.innerHTML) {
-            shouldSwitch = true;
-            break;
-          }
-        }
-        if (shouldSwitch) {
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-          switching = true;
-        }
-      }
-    }
-
-    // Ordenar la tabla por fecha de inicio al cargar la página
-    window.onload = function () {
-      ordenarPorFechaInicioAscendente();
-    }
-  });
-</script>
-
-<script th:inline="javascript">
-  /*<![SCRIPT QUE RESETEA LA PAGINA DESPUES DE USAR UN FORMULARIO[*/
-  /*<![CDATA[*/
-  $(document).ready(function() {
-    $('form').submit(function(e) {
-      e.preventDefault(); // Prevenir el envío normal del formulario
-
-      $.ajax({
-        type: $(this).attr('method'),
-        url: $(this).attr('action'),
-        data: $(this).serialize(),
-        success: function(response) {
-          // Recargar la página después de un breve retraso (por ejemplo, 500 ms)
-          setTimeout(function() {
-            location.reload();
-          }, 500);
-        },
-        error: function(error) {
-          console.log(error);
-          // Manejar errores si es necesario
-        }
-      });
-    });
-  });
-  /*]]>*/
-</script>
-
-
-
-
-<!-- Script para configurar Date Range Picker y validar fechas -->
-<script th:inline="javascript">
-  $(document).ready(function(){
-    // Configurar Date Range Picker para los campos de fecha
-    $('.daterange').daterangepicker({
-      singleDatePicker: true,
-      showDropdowns: true,
-      autoApply: true,
-      locale: {
-        format: 'YYYY-MM-DD',
-        separator: ' - ',
-        applyLabel: 'Aplicar',
-        cancelLabel: 'Cancelar',
-        fromLabel: 'De',
-        toLabel: 'A',
-        customRangeLabel: 'Personalizado',
-        daysOfWeek: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
-        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        firstDay: 1
-      }
-    });
-
-    // Validar fechas al enviar el formulario de Crear Nueva Actividad
-    $('#formActividad').submit(function(e) {
-      var fechaInicio = moment($('#fechainicio').val(), 'YYYY-MM-DD');
-      var fechaTermino = moment($('#fechatermino').val(), 'YYYY-MM-DD');
-
-      if (!fechaInicio.isValid() || !fechaTermino.isValid() || fechaTermino.isBefore(fechaInicio) || fechaInicio.isAfter(fechaTermino)) {
-        alert('Ingrese fechas válidas. La fecha de término no puede ser anterior a la fecha de inicio, y viceversa.');
-        e.preventDefault(); // Evitar el envío del formulario si las fechas no son válidas
-      }
-    });
-  });
-</script>
-
-
 
 <!-- Script para abrir el popup -->
 <script th:inline="javascript">
@@ -785,276 +419,76 @@ scratch. This page gets rid of all links and provides the needed markup only.
   }
 </script>
 
-
-
-<!-- Add this modal at the end of your HTML body -->
-
-<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmar Accion</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ¿Estas seguro que deseas eliminar este elemento?
-        <span id="confirmationMessage"></span>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Borrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
+<!-- Script para abrir el popup -->
 <script th:inline="javascript">
-  function showDeleteConfirmation1(id, entityName) {
-    // Show the confirmation modal
-    $('#deleteConfirmationModal').modal('show');
+  function openPopup(url) {
+    // Obtener las dimensiones de la ventana principal
+    var parentWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var parentHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
-    // Handle modal confirm button click
-    $('#confirmDeleteBtn').off('click').on('click', function () {
-      deleteProyectoLinea(id);
-    });
-  }
+    // Definir las dimensiones del popup
+    var popupWidth = 600;
+    var popupHeight = 900;
 
-  function deleteProyectoLinea(id) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('DELETE', '/ProyectoLinea/eliminar/REST/' + id, true);
-    xhr.onload = function () {
-      if (xhr.status === 204) {
-        // Operation successful, you can do something after deletion
-        // For example, reload the current page
+    // Calcular las coordenadas para centrar el popup
+    var left = (parentWidth - popupWidth) / 2;
+    var top = (parentHeight - popupHeight) / 2;
+
+    // Abrir el popup en el centro
+    var popupWindow = window.open(url, '_blank', 'width=' + popupWidth + ',height=' + popupHeight + ',left=' + left + ',top=' + top + ',scrollbars=yes,toolbar=no,location=no');
+
+    // Agregar un evento para detectar cuando se cierra la ventana emergente
+    if (popupWindow) {
+      popupWindow.addEventListener('beforeunload', function () {
+        // Recargar la página principal cuando se cierra la ventana emergente
         location.reload();
-      } else {
-        // Handle the error if necessary
-        alert('Error deleting the entity.');
-      }
-    };
-    xhr.send();
-  }
-</script>
-
-
-<script th:inline="javascript">
-  function showDeleteConfirmation2(id, ProyectoId) {
-
-    // Show the confirmation modal
-    $('#deleteConfirmationModal').modal('show');
-
-    // Handle modal confirm button click
-    $('#confirmDeleteBtn').off('click').on('click', function () {
-      deleteActividad(id,ProyectoId);
-    });
-  }
-
-  function deleteActividad(id,ProyectoId) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('DELETE', '/actividad/eliminar/REST/' + id +'/' + ProyectoId, true);
-    xhr.onload = function () {
-      if (xhr.status === 204) {
-        // Operation successful, you can do something after deletion
-        // For example, reload the current page
-        location.reload();
-      } else {
-        // Handle the error if necessary
-        alert('Error deleting the entity.');
-      }
-    };
-    xhr.send();
+      });
+    }
   }
 </script>
 
 <script th:inline="javascript">
-  function showDeleteConfirmation3(id, entityName) {
+  /*<![SCRIPT QUE RESETEA LA PAGINA DESPUES DE USAR UN FORMULARIO[*/
+  /*<![CDATA[*/
+  $(document).ready(function() {
+    $('form').submit(function(e) {
+      e.preventDefault(); // Prevenir el envío normal del formulario
 
-    // Show the confirmation modal
-    $('#deleteConfirmationModal').modal('show');
-
-    // Handle modal confirm button click
-    $('#confirmDeleteBtn').off('click').on('click', function () {
-      deleteObjetivoEspecifico(id);
+      $.ajax({
+        type: $(this).attr('method'),
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        success: function(response) {
+          // Recargar la página después de un breve retraso (por ejemplo, 500 ms)
+          setTimeout(function() {
+            location.reload();
+          }, 500);
+        },
+        error: function(error) {
+          console.log(error);
+          // Manejar errores si es necesario
+        }
+      });
     });
-  }
-
-  function deleteObjetivoEspecifico(id) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('DELETE', '/ObjetivoEspecifico/eliminar/REST/' + id, true);
-    xhr.onload = function () {
-      if (xhr.status === 204) {
-        // Operation successful, you can do something after deletion
-        // For example, reload the current page
-        location.reload();
-      } else {
-        // Handle the error if necessary
-        alert('Error deleting the entity.');
-      }
-    };
-    xhr.send();
-  }
-
-
+  });
+  /*]]>*/
 </script>
 
 <script>
   $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
+    $("#listarhs").DataTable({
+      lengthMenu: [2, 10, 25, 50, 100],
+      pageLength: 10,
+      responsive: true,
+      lengthChange: true,
+      autoWidth: true,
+      buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#listarhs_wrapper .col-md-6:eq(0)');
+  });
 
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-
-    //Datemask dd/mm/yyyy
-    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
-    //Datemask2 mm/dd/yyyy
-    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
-    //Money Euro
-    $('[data-mask]').inputmask()
-
-    //Date picker
-    $('#reservationdate').datetimepicker({
-      format: 'L'
-    });
-
-    //Date and time picker
-    $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
-
-    $('#reservationdatetime2').datetimepicker({ icons: { time: 'far fa-clock' } });
-
-    //Date range picker
-    $('#reservation').daterangepicker()
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({
-      timePicker: true,
-      timePickerIncrement: 30,
-      startDate: moment().startOf('hour'),
-      endDate: moment().startOf('hour').add(1, 'hour'),
-      locale: {
-        format: 'YYYY-MM-DDTHH:mm:ss.SSSZ'
-      }
-    })
-    //Date range as a button
-    $('#daterange-btn').daterangepicker(
-            {
-              ranges   : {
-                'Today'       : [moment(), moment()],
-                'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
-                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-                'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-              },
-              startDate: moment().subtract(29, 'days'),
-              endDate  : moment()
-            },
-            function (start, end) {
-              $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-            }
-    )
-
-    $('#daterange-btn2').daterangepicker(
-            {
-              ranges   : {
-                'Today'       : [moment(), moment()],
-                'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
-                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-                'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-              },
-              startDate: moment().subtract(29, 'days'),
-              endDate  : moment()
-            },
-            function (start, end) {
-              $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-            }
-    )
-
-    //Timepicker
-    $('#timepicker').datetimepicker({
-      format: 'LT'
-    })
-
-    //Bootstrap Duallistbox
-    $('.duallistbox').bootstrapDualListbox()
-
-    //Colorpicker
-    $('.my-colorpicker1').colorpicker()
-    //color picker with addon
-    $('.my-colorpicker2').colorpicker()
-
-    $('.my-colorpicker2').on('colorpickerChange', function(event) {
-      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-    })
-
-    $("input[data-bootstrap-switch]").each(function(){
-      $(this).bootstrapSwitch('state', $(this).prop('checked'));
-    })
-
-  })
-  // BS-Stepper Init
-  document.addEventListener('DOMContentLoaded', function () {
-    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-  })
-
-  // DropzoneJS Demo Code Start
-  Dropzone.autoDiscover = false
-
-  // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-  var previewNode = document.querySelector("#template")
-  previewNode.id = ""
-  var previewTemplate = previewNode.parentNode.innerHTML
-  previewNode.parentNode.removeChild(previewNode)
-
-  var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-    url: "/target-url", // Set the url
-    thumbnailWidth: 80,
-    thumbnailHeight: 80,
-    parallelUploads: 20,
-    previewTemplate: previewTemplate,
-    autoQueue: false, // Make sure the files aren't queued until manually added
-    previewsContainer: "#previews", // Define the container to display the previews
-    clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-  })
-
-  myDropzone.on("addedfile", function(file) {
-    // Hookup the start button
-    file.previewElement.querySelector(".start").onclick = function() { myDropzone.enqueueFile(file) }
-  })
-
-  // Update the total progress bar
-  myDropzone.on("totaluploadprogress", function(progress) {
-    document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
-  })
-
-  myDropzone.on("sending", function(file) {
-    // Show the total progress bar when upload starts
-    document.querySelector("#total-progress").style.opacity = "1"
-    // And disable the start button
-    file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
-  })
-
-  // Hide the total progress bar when nothing's uploading anymore
-  myDropzone.on("queuecomplete", function(progress) {
-    document.querySelector("#total-progress").style.opacity = "0"
-  })
-
-  // Setup the buttons for all transfers
-  // The "add files" button doesn't need to be setup because the config
-  // `clickable` has already been specified.
-  document.querySelector("#actions .start").onclick = function() {
-    myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
-  }
-  document.querySelector("#actions .cancel").onclick = function() {
-    myDropzone.removeAllFiles(true)
-  }
-  // DropzoneJS Demo Code End
 </script>
+
+
 
 </body>
 </html>

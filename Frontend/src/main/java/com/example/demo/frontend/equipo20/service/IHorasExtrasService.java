@@ -13,4 +13,6 @@ public interface IHorasExtrasService {
     public HorasExtrasDTO saveREST(HorasExtrasDTO he);
 
     public HorasExtrasDTO deleteREST(Long id);
+
+    public HorasExtrasDTO Solicitar(HorasExtrasDTO horasExtrasDTO);
 }

@@ -165,7 +165,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a th:href="@{/GestorHorasExtras}" class="brand-link">
       <span class="brand-text font-weight-light">Gestion de Horas Extras</span>
     </a>
 
@@ -207,17 +207,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a th:href="@{/GestorHorasExtras/Admin}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Horas Extras de Trabajadores</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a th:href="@{/GestorHorasExtras/Admin2}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Horas Extras de proyectos</p>
+                  <p>Horas Extras de Proyectos</p>
                 </a>
               </li>
+
             </ul>
           </li>
           <li class="nav-item">
@@ -243,7 +244,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Listado de horas extras asociados a trabajadores</h1>
+            <h1 class="m-0">Listado de horas extras asociados a proyectos</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -269,11 +270,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tr>
                     <!--<th>ID</th>-->
                     <th>ID</th>
+                    <th>Proyecto</th>
                     <th>CANTIDAD</th>
                     <th>ESTADO</th>
                     <th>FECHA DE AUTORIZACION</th>
                     <th>FECHA DE LA HORA EXTRA</th>
                     <th>JUSTIFICACION</th>
+                    <th>NOMBRE DE PROYECTOS</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -281,6 +284,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tr th:each="horaextra, iterStat : ${hs}">
                     <!--<td th:text="${proyecto.id}"></td>-->
                     <td th:text="${horaextra.idHorasExtras}"></td>
+                    <td th:text="${horaextra.proyecto.name}"></td>
                     <td th:text="${horaextra.cantidad}"></td>
                     <td th:text="${horaextra.estado}"></td>
                     <td th:text="${horaextra.fecha_de_autorizacion}"></td>

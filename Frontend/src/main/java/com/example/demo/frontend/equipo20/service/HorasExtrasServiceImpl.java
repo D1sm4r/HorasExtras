@@ -109,4 +109,29 @@ public class HorasExtrasServiceImpl implements IHorasExtrasService {
 			return null;
 		}
     }
+
+	@Override
+	public HorasExtrasDTO Solicitar(HorasExtrasDTO horasExtrasDTO) {
+		try {
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+
+			HttpEntity<HorasExtrasDTO> requestEntity = new HttpEntity<>(horasExtrasDTO, headers);
+
+			RestTemplate restTemplate = new RestTemplate();
+			ResponseEntity<HorasExtrasDTO> responseEntity = restTemplate.postForEntity("http://localhost:8080/horasextras/solicitar",
+					requestEntity, HorasExtrasDTO.class);
+
+			if (responseEntity.getStatusCode().is2xxSuccessful()) {
+				HorasExtrasDTO dto = responseEntity.getBody();
+				return dto;
+			} else {
+				System.out.println("A ocurrido un error");
+				return null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
