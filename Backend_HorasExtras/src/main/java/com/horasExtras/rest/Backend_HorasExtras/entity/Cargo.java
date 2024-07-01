@@ -18,7 +18,7 @@ public class Cargo {
     @Column(name = "nombre")
     private String name;
     @Column(name = "saldo")
-    private String saldo;
+    private long saldo;
 
     //------------------------------------------------------------
 

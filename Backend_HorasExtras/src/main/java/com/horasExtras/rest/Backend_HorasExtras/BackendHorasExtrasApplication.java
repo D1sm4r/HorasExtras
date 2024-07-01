@@ -44,12 +44,12 @@ public class BackendHorasExtrasApplication {
 			// Crear cargos
 			Cargo cargo1 = Cargo.builder()
 					.name("Gerente")
-					.saldo("12000")
+					.saldo(12000)
 					.build();
 
 			Cargo cargo2 = Cargo.builder()
 					.name("Ingeniero")
-					.saldo("5000")
+					.saldo(5000)
 					.build();
 
 			cargoRepository.saveAll(List.of(cargo1, cargo2));

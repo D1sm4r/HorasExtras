@@ -15,7 +15,7 @@ public class CargoDTO {
 
     private String name;
 
-    private String saldo;
+    private long saldo;
 
     //------------------------------------------------------------
 
