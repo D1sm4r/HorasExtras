@@ -1,18 +1,18 @@
 
-˜	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°›î²ıÿÿÿÿ8ä„«Û†2J$2abf960f-7d2c-4f23-ad13-1512e1227043
-“	java:S117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©öŸñ8ä„«Û†2J$74ae3249-17e5-4ed3-a31b-734886d3fae3
-˜	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ„Œ²ÿÿÿÿÿ8ä„«Û†2J$9756ea3e-a848-41fc-8c68-51f816226c1f
-“	java:S117X"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿØöÊ8ä„«Û†2J$4780980a-2d30-45a6-bf9e-176349c75836
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï §8ä„«Û†2J$29d5be0f-77c4-4cbd-9579-2294d8fdc3c5
+˜	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°›î²ıÿÿÿÿ8ä„«Û†2J$51228eb6-b6e1-4619-a3cf-2a0a745f8844
+“	java:S117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©öŸñ8ä„«Û†2J$6b0dc3ff-a685-4126-a151-cfa191f1e05b
+˜	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ„Œ²ÿÿÿÿÿ8ä„«Û†2J$942af4ef-6957-46dd-b47e-c07808dae71b
+“	java:S117X"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿØöÊ8ä„«Û†2J$0238237c-f6ca-4f66-a344-3317cbec3aa6
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï §8ä„«Û†2J$d2703da9-826d-47da-84ec-e7eb2c2154f3
 ¡
-java:S22936"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨Šı½øÿÿÿÿ8å„«Û†2J$894a26d1-0e07-4b25-840c-af9a66676ef0
+java:S22936"YReplace the type specification in this constructor call with the diamond operator ("<>").(¨Šı½øÿÿÿÿ8å„«Û†2J$c875b35e-dcc4-4fdc-852d-bcdb9e6d1a94
 Œ
-java:S3655L"DCall "oe.isPresent()" or "!oe.isEmpty()" before accessing the value.(¾Úéğşÿÿÿÿ8å„«Û†2J$2020b9dd-215e-44e2-93d1-d67d7b5dc5d4
+java:S3655L"DCall "oe.isPresent()" or "!oe.isEmpty()" before accessing the value.(¾Úéğşÿÿÿÿ8å„«Û†2J$f83c8070-22ed-47b9-8022-3687e4c533ec
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8æ„«Û†2J$d2512b61-3921-4164-873c-3afe573ec093
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8æ„«Û†2J$1975ea95-7906-4dd1-ad94-f7c626f2783d
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8æ„«Û†2J$1d206ca3-ecc5-4464-a4be-d3502513a1d1
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8æ„«Û†2J$cc8e4189-472f-4026-8972-94e1f77a4fe1
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8æ„«Û†2J$9448d4fa-6551-421e-814f-8b464384bd9c
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8æ„«Û†2J$61fd1219-776e-409a-be5e-4ddca9d03eaa
 j
-java:S19055"'Remove this unnecessary cast to "List".(ğÒ…ó8ë„«Û†2J$e13e2151-410b-4a10-a2d9-341ba3051e2f
+java:S19055"'Remove this unnecessary cast to "List".(ğÒ…ó8ë„«Û†2J$44c5bf77-a789-4575-8068-4c37c52fde77
