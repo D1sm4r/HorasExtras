@@ -7,6 +7,8 @@ import java.util.Optional;
 
 public interface IHorasExtrasService {
 
+    HorasExtrasDTO solicitarHorasExtras(HorasExtrasDTO horasExtrasDTO);
+
     public List<HorasExtrasDTO> findAll();
 
     public Optional<HorasExtrasDTO> findById(long id);

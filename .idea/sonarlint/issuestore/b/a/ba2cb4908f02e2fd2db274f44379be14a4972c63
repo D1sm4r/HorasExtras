@@ -1,12 +1,0 @@
-
-]	java:S125"<This block of commented-out lines of code should be removed.(‹ø‘¯üÿÿÿÿ8ııô2
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ııô2
-u
-java:S1128	"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8ııô2
-[
-java:S1128"9Remove this unused import 'org.springframework.ui.Model'.(ê†ıÿÿÿÿ8ııô2
-l
-java:S1128"ORemove this unused import 'org.springframework.web.bind.annotation.GetMapping'.(‡¡‰Ø8ııô2
-s
-java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅşÿÿÿÿ8ııô2

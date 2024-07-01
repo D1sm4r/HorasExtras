@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 @Service
@@ -18,6 +19,14 @@ public class NotificacionServiceImpl implements INotificacionService {
 
     @Autowired
     private NotificacionRepository beta;
+
+    @Override
+    public List<NotificacionDTO> findByUserId(Long userId) {
+        List<Notificacion> notificaciones = beta.findByUserId(userId);
+        return notificaciones.stream()
+                .map(Notificacion::toDTO)
+                .collect(Collectors.toList());
+    }
 
     @Override
     public List<NotificacionDTO> findAll() {

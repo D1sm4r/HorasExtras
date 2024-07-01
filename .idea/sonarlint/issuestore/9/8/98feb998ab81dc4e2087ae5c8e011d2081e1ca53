@@ -1,13 +1,15 @@
 
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ³‰8Ã¦§€2J$e36700ea-9fac-46f2-b8f9-1f5e36d265f9
-˜	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ„Œ²ÿÿÿÿÿ8Ÿì÷Ì‚2J$55f09eae-6630-4697-b82d-9d968013cee2
-“	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ•ê8ı‚©§€2J$e65b6a13-51fa-4fda-b1d0-34f4cfef1ac6
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï §8Ã¦§€2J$bb8e6438-844c-41ec-a4e2-6a941a7c0835
+“	java:S117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ³‰8Ã¦§€2J$dcd9fc6a-b535-4682-96d0-2a01bea394aa
+˜	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ„Œ²ÿÿÿÿÿ8Ÿì÷Ì‚2J$2b9400ab-c047-48b8-9f3a-25c0de5acb88
+“	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ•ê8ı‚©§€2J$b4001785-9cf8-45b6-917a-8ba9be0c98de
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï §8Ã¦§€2J$6ddd27fa-7af0-4ea7-948c-d06402e36d1a
 ¡
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ’ĞÉøÿÿÿÿ8Ã¦§€2J$435474d2-5223-4324-bc65-e037a45ee509
+java:S2293""YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ’ĞÉøÿÿÿÿ8Ã¦§€2J$7a55d2e3-8b8e-43f3-8618-ee669ecad492
 ‡
-java:S3655*"DCall "oe.isPresent()" or "!oe.isEmpty()" before accessing the value.(ãÙÁ‰8úŒ‘Í‚2J$131effca-5a98-4adf-9188-563f6b81684b
+java:S36553"DCall "oe.isPresent()" or "!oe.isEmpty()" before accessing the value.(ãÙÁ‰8úŒ‘Í‚2J$cef5560e-af52-43c1-a547-4dc69ee56abc
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8‘Ã¦§€2J$f47527f1-eca5-4590-a28b-0c57e24ffebc
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8‘Ã¦§€2J$e5ad13d0-80d1-4cae-9810-01d4992f3db3
+½
+java:S6204"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ª™¨¹8‡€Ÿß†2J$90443058-7103-4e83-b72d-9b0c310e875e
 o
-java:S1905"'Remove this unnecessary cast to "List".(ªšËÚşÿÿÿÿ8ÿŒ‘Í‚2J$064a9189-8c10-4021-ade7-e794c1396500
+java:S1905!"'Remove this unnecessary cast to "List".(ªšËÚşÿÿÿÿ8ÿŒ‘Í‚2J$ae20b006-c632-45dc-a491-e11b474aeb5c

@@ -6,6 +6,8 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,13 @@ public class HorasExtrasController {
 
     @Autowired
     private IHorasExtrasService servicio;
+
+
+    @PostMapping("solicitar")
+    public ResponseEntity<HorasExtrasDTO> solicitarHorasExtras(@RequestBody HorasExtrasDTO horasExtrasDTO) {
+        HorasExtrasDTO result = servicio.solicitarHorasExtras(horasExtrasDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    }
 
     @ResponseBody
     @PostMapping("create")

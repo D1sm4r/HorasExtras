@@ -2,6 +2,8 @@ package com.horasExtras.rest.Backend_HorasExtras;
 
 import com.horasExtras.rest.Backend_HorasExtras.entity.*;
 import com.horasExtras.rest.Backend_HorasExtras.repository.CargoRepository;
+import com.horasExtras.rest.Backend_HorasExtras.repository.NotificacionRepository;
+import com.horasExtras.rest.Backend_HorasExtras.repository.ProyectoRepository;
 import com.horasExtras.rest.Backend_HorasExtras.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,8 +21,39 @@ public class BackendHorasExtrasApplication {
 	}
 
 	@Bean
-	CommandLineRunner init(UserRepository userRepository, CargoRepository cargoRepository) {
+	CommandLineRunner init(UserRepository userRepository,
+						   CargoRepository cargoRepository,
+						   NotificacionRepository notificacionRepository,
+						   ProyectoRepository proyectoRepository) {
 		return args -> {
+			userRepository.deleteAll();
+			cargoRepository.deleteAll();
+			notificacionRepository.deleteAll();
+			proyectoRepository.deleteAll();
+
+			// Create Proyecto
+			Proyecto proyecto1 = Proyecto.builder()
+					.name("Proyecto serio")
+					.build();
+
+			Proyecto proyecto2 = Proyecto.builder()
+					.name("Proyecto serio muy serio")
+					.build();
+			proyectoRepository.saveAll(List.of(proyecto1, proyecto2));
+
+			// Crear cargos
+			Cargo cargo1 = Cargo.builder()
+					.name("Gerente")
+					.saldo("12000")
+					.build();
+
+			Cargo cargo2 = Cargo.builder()
+					.name("Ingeniero")
+					.saldo("5000")
+					.build();
+
+			cargoRepository.saveAll(List.of(cargo1, cargo2));
+
 			//Create permission
 			PermissionEntity createPermission = PermissionEntity.builder()
 					.name("CREATE")
@@ -73,6 +106,7 @@ public class BackendHorasExtrasApplication {
 					.accountNonLocked(true)//la cuanta no esta bloqueada
 					.credentialsNonExpired(true)//las credenciales no esta expirada
 					.roles(Set.of(roleAdmin))
+					.cargo(cargo1)
 					.build();
 
 			UserEntity userDismar = UserEntity.builder()
@@ -83,6 +117,7 @@ public class BackendHorasExtrasApplication {
 					.accountNonLocked(true)//la cuanta no esta bloqueada
 					.credentialsNonExpired(true)//las credenciales no esta expirada
 					.roles(Set.of(roleUser))
+					.cargo(cargo1)
 					.build();
 
 			UserEntity userMati = UserEntity.builder()
@@ -93,6 +128,7 @@ public class BackendHorasExtrasApplication {
 					.accountNonLocked(true)//la cuanta no esta bloqueada
 					.credentialsNonExpired(true)//las credenciales no esta expirada
 					.roles(Set.of(roleInvted))
+					.cargo(cargo1)
 					.build();
 
 			UserEntity userDamian = UserEntity.builder()
@@ -103,9 +139,27 @@ public class BackendHorasExtrasApplication {
 					.accountNonLocked(true)//la cuanta no esta bloqueada
 					.credentialsNonExpired(true)//las credenciales no esta expirada
 					.roles(Set.of(roleDeveloper))
+					.cargo(cargo1)
 					.build();
 
 			userRepository.saveAll(List.of(userJavier, userDismar, userMati, userDamian));
+
+			Notificacion notificaion1 = Notificacion.builder()
+					.mensaje("Hola Hola Hola")
+					.user(userJavier)
+					.build();
+
+			Notificacion notificaion2 = Notificacion.builder()
+					.mensaje("Hola Hola")
+					.user(userDamian)
+					.build();
+
+			Notificacion notificaion3 = Notificacion.builder()
+					.mensaje("Hola")
+					.user(userDamian)
+					.build();
+
+			notificacionRepository.saveAll(List.of(notificaion1, notificaion2, notificaion3));
 		};
 	}
 }

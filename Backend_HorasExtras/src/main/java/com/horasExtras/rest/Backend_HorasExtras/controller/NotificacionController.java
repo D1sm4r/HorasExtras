@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,12 @@ public class NotificacionController {
 
     @Autowired
     private INotificacionService servicio;
+
+    @GetMapping("/usuario/{userId}")
+    public ResponseEntity<List<NotificacionDTO>> getNotificacionesByUserId(@PathVariable Long userId) {
+        List<NotificacionDTO> notificaciones = servicio.findByUserId(userId);
+        return ResponseEntity.ok(notificaciones);
+    }
 
     @ResponseBody
     @PostMapping("create")

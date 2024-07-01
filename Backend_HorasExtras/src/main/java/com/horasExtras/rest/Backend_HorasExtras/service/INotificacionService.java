@@ -14,4 +14,6 @@ public interface INotificacionService {
     public NotificacionDTO save(NotificacionDTO notificacion);
 
     public void delete(NotificacionDTO dto);
+
+    List<NotificacionDTO> findByUserId(Long userId);
 }
