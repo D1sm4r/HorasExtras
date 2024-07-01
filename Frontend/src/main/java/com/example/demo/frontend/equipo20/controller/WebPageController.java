@@ -1,3 +1,5 @@
+
+
 package com.example.demo.frontend.equipo20.controller;
 
 import com.example.demo.frontend.equipo20.dto.HorasExtrasDTO;
@@ -9,7 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("GestorHorasExtras")
@@ -49,10 +54,22 @@ public class WebPageController {
 	// Fin logins Usuarios
 	@GetMapping("Empleado")
 	public String Empleado(Model model) {
-		//model.addAttribute("notificaciones",bdnotificacion.findAllREST());
 		model.addAttribute("hs",bdhs.findAllREST());
 		return "Empleado/mantenedorEmpleado";
 	}
+
+	@GetMapping("hs")
+	public String horasextrass(Model model) {
+		model.addAttribute("hs", bdhs.findAllREST());
+		return "rest/aaaa";
+	}
+
+	@GetMapping("hs/listar/nuevo/REST")
+	public String crearHoras(Model model) {
+		model.addAttribute("horasextras", new HorasExtrasDTO());
+		return "rest/CrearHorasExtras";
+	}
+
 
 	@GetMapping("Admin")
 	public String Admin(Model model) {
@@ -61,17 +78,22 @@ public class WebPageController {
 		return "Admin/mantenedorAdmin";
 	}
 
+	@GetMapping("Supervisor")
+	public String Supervisor(Model model) {
+		model.addAttribute("hs",bdhs.findAllREST());
+		return "Supervisor/mantenedorSupervisor";
+	}
+
+	@GetMapping("Supervisor/EditarHS/{id}")
+	public String EditarHS(@PathVariable Long id, Model model) {
+		model.addAttribute("horaextra", bdhs.findByIdREST(id));
+		return "Supervisor/hs";
+	}
 	@GetMapping("Admin2")
 	public String Admin2(Model model) {
 		model.addAttribute("hs",bdhs.findAllREST());
 		model.addAttribute("proyectos",bdproyecto.findAllREST());
 		return "Admin/mantenedorAdmin2";
-	}
-
-	@GetMapping("Supervisor")
-	public String Supervisor(Model model) {
-		model.addAttribute("hs",bdhs.findAllREST());
-		return "Supervisor/mantenedorSupervisor";
 	}
 
 	@GetMapping("Supervisor2")
@@ -81,11 +103,7 @@ public class WebPageController {
 		return "Supervisor/mantenedorSupervisor2";
 	}
 
-	@GetMapping("Supervisor/EditarHS/{id}")
-	public String EditarHS(@PathVariable Long id, Model model) {
-		model.addAttribute("horaextra", bdhs.findByIdREST(id));
-		return "Supervisor/hs";
-	}
+
 
 
 

@@ -1,58 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Crear horas XD(en progreso)</title>
+    <title>Crear Horas Extras</title>
 </head>
 <body>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h1 class="text-center">Registro de horas</h1>
-            <div class="card-body">
-                <form th:action="@{/horasextras/grabar/REST}"th:object="${horasextras}" method="POST">
-                    <div class="form-group">
-                        <label>ID : </label>
-                        <input type="text" name="idHorasExtras" th:field="*{idHorasExtras}" class="form-control"placeholder="no se si esto va o no: ">
-                    </div>
-                    <div class="form-group">
-                        <label>Cantidad : </label>
-                        <input type="text" name="cantidad" th:field="*{cantidad}" class="form-control"placeholder="ponle tus horas we: ">
-                    </div>
-                    <div calass="form-group">
-                        <label>Fecha : </label>
-                        <input type="text" name="fecha" th:field="*{fecha}" class="form-control"placeholder="cuando fue: ">
-                    </div>
-                    <div calass="form-group">
-                        <label>Fecha de autorizacion: </label>
-                        <input type="text" name="fecha_de_autorizacion" th:field="*{fecha_de_autorizacion}" class="form-control"placeholder="confirmale we: ">
-                    </div>
-                    <div calass="form-group">
-                        <label>Justificación : </label>
-                        <input type="text" name="justificacion" th:field="*{justificacion}" class="form-control"placeholder="choque dime: ">
-                    </div>
-                    <div calass="form-group">
-                        <label>Estado : </label>
-                        <input type="text" name="estado" th:field="*{estado}" class="form-control"placeholder="razoname: ">
-                    </div>
-                    <br>
-                    <div class="box-footer">
-                        <button class="btn btn-success">GUARDAR</button>
-                    </div>
-                </form>
-
-            </div>
-
-        </div>
+<h2>Crear Horas Extras</h2>
+<form th:action="@{/hs/grabar/REST}" method="post" th:object="${horasextras}">
+    <label>Cantidad: <input type="text" th:field="*{cantidad}" required/></label><br/>
+    <div class="form-group">
+        <label for="estado">Estado</label>
+        <select th:field="*{estado}" class="form-control" id="estado">
+            <option value="pendiente">Pendiente</option>
+        </select>
     </div>
-</div>
-
-
-
-
+    <label>Justificación: <input type="text" th:field="*{justificacion}" required/></label><br/>
+    <button type="submit">Guardar</button>
+</form>
 </body>
 </html>

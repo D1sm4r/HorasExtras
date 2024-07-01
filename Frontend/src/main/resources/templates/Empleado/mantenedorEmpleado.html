@@ -76,11 +76,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  Brad Diesel
+                  Javier Choque
                   <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                 </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                <p class="text-sm">Dizmar, perdi el bebe, la casa y el vino</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 1 Hours Ago</p>
               </div>
             </div>
             <!-- Message End -->
@@ -92,10 +92,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  John Pierce
+                  John Doe
                   <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
                 </h3>
-                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm">I got robbed bro, but i got your message</p>
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
             </div>
@@ -108,11 +108,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
-                  Nora Silvester
+                  Matias Torres
                   <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                 </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                <p class="text-sm">Fui a la profe y le hice "brrrrrrrrrrrrrrrrr" por 4 horas, igual no pase </p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 15 minutes ago</p>
               </div>
             </div>
             <!-- Message End -->
@@ -127,18 +127,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
         </a>
-        <!--<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-header" th:text="${notificaciones.size()} + ' Notifications'"></span>
-          <div class="dropdown-divider"></div>
-          <div th:each="notificacion : ${notificaciones}">
-            <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i>
-              <span th:text="${notificacion.mensaje}"></span>
-            </a>
+        <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-header" th:text="${notificaciones.size()} + ' Notifications'"></span>
             <div class="dropdown-divider"></div>
-          </div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>-->
+            <div th:each="notificacion : ${notificaciones}">
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-envelope mr-2"></i>
+                <span th:text="${notificacion.mensaje}"></span>
+              </a>
+              <div class="dropdown-divider"></div>
+            </div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+          </div>-->
       </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -238,15 +238,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <h1 class="m-0">Listado de horas extras asociados a trabajadores</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Horas Extras</li>
-            </ol>
+            <a th:href="@{hs/listar/nuevo/REST}" class="btn btn-primary float-right">Crear horas extras</a>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    </div><!-- /.content-header -->
 
     <!-- Main content -->
     <div class="content">
@@ -278,6 +274,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td th:text="${horaextra.fecha_de_autorizacion}"></td>
                     <td th:text="${horaextra.fecha}"></td>
                     <td th:text="${horaextra.justificacion}"></td>
+                    <td>
+                      <!-- Buscar la persona correspondiente al orgpersonaId del proyecto -->
+                      <!--<span th:each="persona : ${personas}" th:if="${persona.id == proyecto.orgpersonaId}" th:text="${persona.nombre}"></span>-->
+                    </td>
                   </tr>
                   <!-- Fin del bloque a reemplazar -->
                   </tbody>

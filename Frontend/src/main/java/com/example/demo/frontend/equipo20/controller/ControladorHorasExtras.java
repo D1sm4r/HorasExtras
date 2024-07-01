@@ -18,7 +18,7 @@ public class ControladorHorasExtras {
     private IHorasExtrasService servicio;
 
     // http://localhost:8081/horasextras/listar/REST
-    @GetMapping("listar/REST")
+    @GetMapping("/listar/REST")
     public String listarREST(Model model) {
         List<HorasExtrasDTO> HorasExtrass = servicio.findAllREST();
         model.addAttribute("horasextrass", HorasExtrass);
@@ -44,7 +44,14 @@ public class ControladorHorasExtras {
     @PostMapping("grabar/REST")
     public String saveREST(@Valid HorasExtrasDTO p, Model model) {
         servicio.saveREST(p);
-        return "redirect:/horasextras/listar/REST";
+        return "redirect:/GestorHorasExtras/Empleado";
+    }
+
+    // http://localhost:8081/horasextras/eliminar/id
+    @GetMapping("eliminar/REST/{id}")
+    public String deleteREST(@PathVariable long id, Model model) {
+        servicio.deleteREST(id);
+        return "redirect:/admin/horasextras";
     }
 
     // http://localhost:8081/horasextras/grabar/REST
@@ -56,14 +63,6 @@ public class ControladorHorasExtras {
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error al guardar Horas Extras");
         }
-    }
-
-
-    // http://localhost:8081/horasextras/eliminar/id
-    @GetMapping("eliminar/REST/{id}")
-    public String deleteREST(@PathVariable long id, Model model) {
-        servicio.deleteREST(id);
-        return "redirect:/admin/horasextras";
     }
 
 }
