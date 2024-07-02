@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>Admin LTE 3 | Log in</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback}" />
+    <link rel="stylesheet" th:href="@{/css/all.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/icheck-bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/adminlte.min.css}" />
+    <style>
+        body {
+            background-image: url('/img/fondoWP.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .lockscreen-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .lockscreen-buttons button {
+            width: 30%;
+        }
+        .custom-button {
+            background-color: rgba(0, 0, 0, 0.7); /* Color negro con transparencia */
+            border: none; /* Sin borde */
+            color: white; /* Texto blanco */
+        }
+        .custom-button:hover {
+            background-color: rgba(255, 165, 0, 0.9); /* Naranja al pasar el ratón */
+        }
+        .animation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .animation-overlay img {
+            width: 150px;
+            opacity: 0;
+            animation: fadeInOut 2s forwards;
+        }
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="login-logo">
+        <a href="../../index2.html"><b>Empleado</b>INGCO</a>
+    </div>
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">Ingrese sus datos para ingresar</p>
+            <form th:action="@{/login}" method="post" id="loginForm">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Username" id="username" name="username" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <a href="http://localhost:8080/GestorHorasExtras" class="btn custom-button btn-block">Cancelar y volver al Menú Anterior</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="animation-overlay" id="animationOverlay">
+    <img src="/img/ingcoSinFondo.png" alt="INGCO Logo">
+</div>
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/adminlte.min.js}"></script>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        document.getElementById('animationOverlay').style.display = 'flex';
+        setTimeout(function() {
+            event.target.submit();
+        }, 2000);
+    });
+</script>
+</body>
+</html>
