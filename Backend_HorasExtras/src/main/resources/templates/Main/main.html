@@ -12,6 +12,20 @@
     <!-- Theme style -->
     <link rel="stylesheet" th:href="@{/AdminLTE-3.2.0/dist/css/adminlte.min.css}">
     <style>
+        body {
+            background-image: url('/img/fondoWP.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: flex-start; /* Alinea el contenido al inicio */
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .lockscreen-wrapper {
+            margin-top: 20px; /* Ajusta este valor según sea necesario */
+        }
         .lockscreen-buttons {
             display: flex;
             justify-content: space-around;
@@ -19,6 +33,22 @@
         }
         .lockscreen-buttons button {
             width: 30%;
+        }
+
+        .custom-button {
+            background-color: white; /* Botones blancos */
+            color: black; /* Texto negro */
+            border: 1px white; /* Borde negro */
+        }
+
+        .custom-button:hover {
+            background-color: rgba(255, 165, 0, 0.9); /* Más oscuro al pasar el ratón */
+        }
+
+        .logo-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px; /* Reduce el espacio superior */
         }
     </style>
 </head>
@@ -29,29 +59,22 @@
         <a href="../../index2.html"><b>Iniciar</b> Sesion</a>
     </div>
     <!-- User name -->
-    <div class="lockscreen-name">Por favor seleccione su tipo de sesion</div>
+    <div class="lockscreen-name">Por favor seleccione su rol para iniciar sesion</div>
 
     <!-- START LOCK SCREEN ITEM -->
     <div class="lockscreen-item">
         <!-- lockscreen buttons -->
         <div class="lockscreen-buttons">
-            <a th:href="@{/GestorHorasExtras/loginSupervisor}" class="btn btn-primary">Supervisor</a>
-            <a th:href="@{/GestorHorasExtras/loginAdmin}" class="btn btn-secondary">Admin</a>
-            <a th:href="@{/GestorHorasExtras/loginEmpleado}" class="btn btn-success">Empleado</a>
+            <a th:href="@{/GestorHorasExtras/loginSupervisor}" class="btn custom-button">Supervisor</a>
+            <a th:href="@{/GestorHorasExtras/loginAdmin}" class="btn custom-button">Admin</a>
+            <a th:href="@{/GestorHorasExtras/loginEmpleado}" class="btn custom-button">Empleado</a>
         </div>
         <!-- /.lockscreen buttons -->
 
     </div>
     <!-- /.lockscreen-item -->
-    <div class="help-block text-center">
-        Choose your role to retrieve your session
-    </div>
-    <div class="text-center">
-        <a th:href="@{/GestorHorasExtras/loginEmpleado}">Or sign in as a different user</a>
-    </div>
-    <div class="lockscreen-footer text-center">
-        Copyright &copy; 2014-2021 <b><a href="https://adminlte.io" class="text-black">AdminLTE.io</a></b><br>
-        All rights reserved
+    <div class="logo-wrapper">
+        <img src="/img/ingcoSinFondo.png" alt="INGCO Logo">
     </div>
 </div>
 <!-- /.center -->
