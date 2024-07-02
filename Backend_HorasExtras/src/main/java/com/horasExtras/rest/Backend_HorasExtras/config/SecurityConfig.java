@@ -43,6 +43,7 @@ public class SecurityConfig {
                         .requestMatchers("/GestorHorasExtras/admin_usuarios").hasRole("ADMIN")
                         .requestMatchers("/GestorHorasExtras/admin_proyectos").hasRole("ADMIN")
                         .requestMatchers("/GestorHorasExtras/supervisor").hasRole("SUPERVISOR")
+                        .requestMatchers("/GestorHorasExtras/aprobar/**").hasRole("SUPERVISOR")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
