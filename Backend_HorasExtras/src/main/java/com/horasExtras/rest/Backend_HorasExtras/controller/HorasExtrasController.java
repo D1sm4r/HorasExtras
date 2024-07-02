@@ -1,4 +1,4 @@
-package com.horasExtras.rest.Backend_HorasExtras.dto.controller;
+package com.horasExtras.rest.Backend_HorasExtras.controller;
 
 import java.util.List;
 import java.util.Optional;
