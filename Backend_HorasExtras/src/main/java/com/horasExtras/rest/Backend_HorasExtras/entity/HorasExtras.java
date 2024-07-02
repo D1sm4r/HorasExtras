@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.horasExtras.rest.Backend_HorasExtras.dto.HorasExtrasDTO;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -17,14 +18,16 @@ import java.util.Date;
 public class HorasExtras {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idHorasExtras;
+    private Long idHorasExtras;
     @Column
     private int cantidad;
     @Temporal(TemporalType.TIMESTAMP)
     @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
     @Temporal(TemporalType.TIMESTAMP)
     @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha_de_autorizacion;
     @Column
     private String justificacion;

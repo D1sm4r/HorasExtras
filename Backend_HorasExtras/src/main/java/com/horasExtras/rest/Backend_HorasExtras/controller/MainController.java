@@ -124,4 +124,4 @@ public class MainController {
         model.addAttribute("usuarios", bduser.findAll());
         return "Supervisor/aprobar";
     }
-    }
+}
