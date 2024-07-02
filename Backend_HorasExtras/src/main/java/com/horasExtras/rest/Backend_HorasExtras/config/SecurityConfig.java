@@ -34,8 +34,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/css/**", "/js/**", "/img/**", "/AdminLTE-3.2.0/**", "/webjars/**", "/static/**").permitAll()
                         .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers("/GestorHorasExtras/**").permitAll()
-                        .requestMatchers("/GestorHorasExtras/solicitar").permitAll()
+                        .requestMatchers("/GestorHorasExtras/**").permitAll() // Permitir acceso a /GestorHorasExtras/**
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
