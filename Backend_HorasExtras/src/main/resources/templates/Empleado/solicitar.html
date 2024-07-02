@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMPLEADO</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback}" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" th:href="@{/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css}" />
+  <!-- Theme style -->
+  <link rel="stylesheet" th:href="@{/AdminLTE-3.2.0/dist/css/adminlte.min.css}" />
+
+  <!-- DataTables -->
+  <link rel="stylesheet" th:href="@{/AdminLTE-3.2.0/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css}" />
+  <link rel="stylesheet" th:href="@{/AdminLTE-3.2.0/plugins/datatables-responsive/css/responsive.bootstrap4.min.css}" />
+  <link rel="stylesheet" th:href="@{/AdminLTE-3.2.0/plugins/datatables-buttons/css/buttons.bootstrap4.min.css}" />
+
+</head>
+<!--
+`body` tag options:
+
+  Apply one or more of the following classes to to the body tag
+  to get the desired effect
+
+  * sidebar-collapse
+  * sidebar-mini
+-->
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a th:href="@{/webpage/home}">Home</a></li>
+              <li class="breadcrumb-item active">Gestion de Horas Extras</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+
+      <!-- /.card- -->
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Editar Hora Extra</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+
+        <form th:action="@{/horasextras/create}" th:object="${horaextra}" method="POST" enctype="application/x-www-form-urlencoded">
+          <div class="form-group d-none">
+            <label>ID</label>
+            <input th:field="*{idHorasExtras}" type="text" class="form-control"/>
+          </div>
+
+          <div class="form-group">
+            <label>Cantidad de horas extras</label>
+            <input th:field="*{cantidad}" type="text" class="form-control"/>
+          </div>
+
+          <div class="form-group">
+            <label>Fecha de la hora extra</label>
+            <input th:field="*{fecha}" type="date" class="form-control"/>
+          </div>
+
+          <div class="form-group d-none">
+            <label>Fecha de Autorización</label>
+            <input th:field="*{fecha_de_autorizacion}" type="date" class="form-control"/>
+          </div>
+
+          <div class="form-group">
+            <label>Justificación</label>
+            <input th:field="*{justificacion}" type="text" class="form-control"/>
+          </div>
+
+          <div class="form-group d-none">
+            <input type="hidden" th:field="*{estado}" th:value="'pendiente'" class="form-control"/>
+          </div>
+
+          <div class="form-group">
+            <label for="user">Empleado</label>
+            <select th:field="*{user.id}" class="form-control" id="user" required>
+              <option value="" disabled selected>Seleccionar Usuario</option>
+              <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.username}"></option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="proyecto">Proyecto</label>
+            <select th:field="*{proyecto.idProyecto}" class="form-control" id="proyecto" required>
+              <option value="" disabled selected>Seleccionar Proyecto</option>
+              <option th:each="proyecto : ${proyectos}" th:value="${proyecto.idProyecto}" th:text="${proyecto.name}"></option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-success">
+          </div>
+        </form>
+      </div>
+      <!-- /.card -->
+
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
+  </div>
+  <!-- ./wrapper -->
+
+
+  <!-- REQUIRED SCRIPTS -->
+
+  <!-- jQuery -->
+  <script th:src="@{/AdminLTE-3.2.0/plugins/jquery/jquery.min.js}"></script>
+
+  <!-- Bootstrap 4 -->
+  <script th:src="@{/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+  <!-- Page specific script -->
+  <script th:inline="javascript">
+    /* SCRIPT QUE CIERRA LA PÁGINA DESPUÉS DE USAR UN FORMULARIO */
+    $(document).ready(function() {
+      $('form').submit(function(e) {
+        e.preventDefault(); // Prevenir el envío normal del formulario
+
+        $.ajax({
+          type: $(this).attr('method'),
+          url: $(this).attr('action'),
+          data: $(this).serialize(),
+          success: function(response) {
+            // Cerrar la página después de un breve retraso (por ejemplo, 500 ms)
+            setTimeout(function() {
+              window.close();
+            }, 500);
+          },
+          error: function(error) {
+            console.log(error);
+            // Manejar errores si es necesario
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

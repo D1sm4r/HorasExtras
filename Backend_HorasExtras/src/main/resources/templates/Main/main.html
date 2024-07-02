@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Lockscreen</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+    <style>
+        .lockscreen-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .lockscreen-buttons button {
+            width: 30%;
+        }
+    </style>
+</head>
+<body class="hold-transition lockscreen">
+<!-- Automatic element centering -->
+<div class="lockscreen-wrapper">
+    <div class="lockscreen-logo">
+        <a href="../../index2.html"><b>Iniciar</b>Sesion</a>
+    </div>
+    <!-- User name -->
+    <div class="lockscreen-name">por favor seleccione su tipo de sesion</div>
+
+    <!-- START LOCK SCREEN ITEM -->
+    <div class="lockscreen-item">
+        <!-- lockscreen image -->
+
+        <!-- /.lockscreen-image -->
+
+        <!-- lockscreen buttons -->
+        <div class="lockscreen-buttons">
+            <a th:href="@{/GestorHorasExtras/loginSupervisor}" class="btn btn-primary">Supervisor</a>
+            <a th:href="@{/GestorHorasExtras/loginAdmin}" class="btn btn-secondary">Admin</a>
+            <a th:href="@{/GestorHorasExtras/loginEmpleado}" class="btn btn-success">Empleado</a>
+        </div>
+        <!-- /.lockscreen buttons -->
+
+    </div>
+    <!-- /.lockscreen-item -->
+    <div class="help-block text-center">
+        Choose your role to retrieve your session
+    </div>
+    <div class="text-center">
+        <a href="../Empleado/loginEmpleado.html">Or sign in as a different user</a>
+    </div>
+    <div class="lockscreen-footer text-center">
+        Copyright &copy; 2014-2021 <b><a href="https://adminlte.io" class="text-black">AdminLTE.io</a></b><br>
+        All rights reserved
+    </div>
+</div>
+<!-- /.center -->
+
+<!-- jQuery -->
+<script src="/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
