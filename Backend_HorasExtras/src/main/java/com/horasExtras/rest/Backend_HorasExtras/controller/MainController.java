@@ -91,7 +91,7 @@ public class MainController {
         model.addAttribute("proyectos",bdproyecto.findAll());
         model.addAttribute("usuarios",bduser.findAll());
         model.addAttribute("notificaciones",bdnotificaciones.findAll());
-        return "empleado/usuarios";
+        return "Empleado/usuarios";
     }
 
     @GetMapping("solicitar")
@@ -99,7 +99,7 @@ public class MainController {
         model.addAttribute("usuarios",bduser.findAll());
         model.addAttribute("proyectos",bdproyecto.findAll());
         model.addAttribute("horaextra", new HorasExtrasDTO());
-        return "empleado/solicitar";
+        return "Empleado/solicitar";
     }
 
     // MAPEO DE PAGINAS DE SUPERVISOR
