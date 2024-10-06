@@ -1,11 +1,0 @@
-
-˜	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š­ì˜úÿÿÿÿ8òóÜ§€2J$aa7869ba-0db6-4c34-8848-2ac60ab803a0
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ©ç8òóÜ§€2J$a0c789cb-569a-4b73-961c-7dfa966fbc8b
-’	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß‡‹8òóÜ§€2J$e3af77a0-1ed0-4e12-9746-723d5b149d41
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï §8òóÜ§€2J$5bdf2190-5558-45d4-8ddb-d4cd67468fcf
-¡
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(û‹è…ûÿÿÿÿ8òóÜ§€2J$2a6dcf82-53ea-4768-b4ba-50d0ffd3c6aa
-…
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8úóÜ§€2J$f71e0783-afc7-44f9-af87-976ae1e865d6
-o
-java:S1905"'Remove this unnecessary cast to "List".(ì¡úÿÿÿÿ8ıóÜ§€2J$12fd7a52-c055-43e8-9c5e-90c2600bed14

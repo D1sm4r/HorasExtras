@@ -1,7 +1,6 @@
 package com.horasExtras.rest.Backend_HorasExtras.dto;
 
 import com.horasExtras.rest.Backend_HorasExtras.entity.Notificacion;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,15 +10,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class NotificacionDTO {
 
-    private long idNotificacion;
+    private Long idNotificacion;
 
     private String mensaje;
 
     //------------------------------------------------------------
 
-    private EmpleadoDTO empleado;
-
-    private SupervisorDTO supervisor;
+    private UserDTO user;
 
     //------------------------------------------------------------
 
@@ -29,12 +26,8 @@ public class NotificacionDTO {
         e.setIdNotificacion(this.getIdNotificacion());
         e.setMensaje(this.getMensaje());
 
-        if(this.supervisor != null) {
-            e.setSupervisor(this.supervisor.toEntity());
-        }
-
-        if(this.empleado != null) {
-            e.setEmpleado(this.empleado.toEntity());
+        if(this.user != null) {
+            e.setUser(this.user.toEntity());
         }
 
         return e;

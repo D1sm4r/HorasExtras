@@ -14,7 +14,7 @@ import lombok.*;
 public class Proyecto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idProyecto;
+    private Long idProyecto;
     @Column(name = "nombre")
     private String name;
 

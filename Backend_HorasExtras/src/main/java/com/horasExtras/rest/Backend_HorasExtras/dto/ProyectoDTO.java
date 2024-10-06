@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProyectoDTO {
 
-    private long idProyecto;
+    private Long idProyecto;
 
     private String name;
 

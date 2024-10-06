@@ -1,9 +1,11 @@
 
-˜	java:S1170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â‘Íœüÿÿÿÿ8Â¿¹§€2J$575aae96-16e7-4fb6-9905-dc6a907863b4
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï §8—¯·§€2J$cbd026f8-9011-43d5-a90a-622bd62211ea
+˜	java:S117."QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â‘Íœüÿÿÿÿ8Â¿¹§€2J$140d9ad0-44e4-417d-b5d9-e4116605d4bc
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï §8—¯·§€2J$2ef2d939-e4f0-40f3-adde-41becd925b77
 ¡
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ğŞÏŒşÿÿÿÿ8Ã¿¹§€2J$8279e55b-593b-431e-a1e4-ce95bab90ec6
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ğŞÏŒşÿÿÿÿ8Ã¿¹§€2J$92789bbe-ffc9-40ed-ba8e-23cb39886ddb
+Œ
+java:S3655""DCall "oe.isPresent()" or "!oe.isEmpty()" before accessing the value.(Ø¸Ôüÿÿÿÿ8£şøÌ‚2J$ac79ef32-9652-4ab3-98fb-1fbefe09fd4d
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8š¯·§€2J$38b1090a-af50-4e26-84c8-e5c8721aa88c
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8š¯·§€2J$f2bb7455-17c0-4ae4-9e12-9277bddf9495
 j
-java:S1905"'Remove this unnecessary cast to "List".(äÍ¡Ú8Ú¥»§€2J$7644d5ee-edb9-4c0e-875f-4a450def3520
+java:S1905"'Remove this unnecessary cast to "List".(äÍ¡Ú8Ú¥»§€2J$feecefef-38f3-4162-8a06-d7fb509b806a

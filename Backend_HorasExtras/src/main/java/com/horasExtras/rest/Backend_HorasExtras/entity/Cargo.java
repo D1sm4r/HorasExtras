@@ -14,11 +14,11 @@ import lombok.*;
 public class Cargo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idCargo;
+    private Long idCargo;
     @Column(name = "nombre")
     private String name;
     @Column(name = "saldo")
-    private String saldo;
+    private long saldo;
 
     //------------------------------------------------------------
 

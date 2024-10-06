@@ -1,14 +1,0 @@
-
-˜	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òåº×ûÿÿÿÿ8ªü¥€2J$d1fc2529-5e22-412c-aa13-8704ae093daa
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ©ç8ªü¥€2J$d119c428-b60c-4582-a7ca-2a0b235a0b5d
-˜	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“î¦›ùÿÿÿÿ8ªü¥€2J$872d3e12-53f4-4c70-800a-15fa7ee0d834
-˜	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ²âéùÿÿÿÿ8Òşş¥€2J$3f42754a-e7b6-46e7-ad52-983826f6d743
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ï §8ªü¥€2J$98ffe42e-bcd6-4037-beb4-1659ebeb2170
-¡
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(µ§ş’ÿÿÿÿÿ8ªü¥€2J$8582dfd5-b604-420f-b7a3-c8614018d869
-f
-java:S36550"DCall "oe.isPresent()" or "!oe.isEmpty()" before accessing the value.(°ª²’ıÿÿÿÿ8« úò€2
-…
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8’ªü¥€2J$b99f1271-119f-48ec-ba76-46198c19f61d
-j
-java:S1905"'Remove this unnecessary cast to "List".(’¥¯Ñ8—ªü¥€2J$f49c7f54-6921-45a6-8db6-1ed0dec42f75

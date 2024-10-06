@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CargoDTO {
 
-    private long idCargo;
+    private Long idCargo;
 
     private String name;
 
-    private String saldo;
+    private Long saldo;
 
     //------------------------------------------------------------
 

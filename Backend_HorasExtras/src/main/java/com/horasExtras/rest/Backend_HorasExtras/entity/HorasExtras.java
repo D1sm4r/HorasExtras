@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.horasExtras.rest.Backend_HorasExtras.dto.HorasExtrasDTO;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -17,39 +18,38 @@ import java.util.Date;
 public class HorasExtras {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idHorasExtras;
+    private Long idHorasExtras;
     @Column
     private int cantidad;
     @Temporal(TemporalType.TIMESTAMP)
     @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
     @Temporal(TemporalType.TIMESTAMP)
     @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha_de_autorizacion;
     @Column
     private String justificacion;
     @Column
-    private boolean estado;
+    private String estado;
 
     //------------------------------------------------------------
-
-    @ManyToOne
-    @JoinColumn(name = "id_Empleado")
-    private Empleado empleado;
 
     @ManyToOne
     @JoinColumn(name = "idProyecto")
     private Proyecto proyecto;
 
     @ManyToOne
-    @JoinColumn(name = "idSupervisor")
-    private Supervisor supervisor;
+    @JoinColumn(name = "idUser")
+    private UserEntity user;
+
 
     //------------------------------------------------------------
 
     public HorasExtras(@JsonProperty("idHorasExtras")long idHorasExtras, @JsonProperty("cantidad")int cantidad,
                        @JsonProperty("fecha")Date fecha, @JsonProperty("fecha_de_autorizacion")Date fecha_de_autorizacion,
-                       @JsonProperty("justificacion") String justificacion, @JsonProperty("estado")boolean estado){
+                       @JsonProperty("justificacion") String justificacion, @JsonProperty("estado")String estado){
         super();
         this.idHorasExtras = idHorasExtras;
         this.cantidad = cantidad;
@@ -66,18 +66,14 @@ public class HorasExtras {
         dto.setFecha(this.getFecha());
         dto.setFecha_de_autorizacion(this.getFecha_de_autorizacion());
         dto.setJustificacion(this.getJustificacion());
-        dto.setEstado(this.isEstado());
-
-        if (this.empleado!= null) {
-            dto.setEmpleado(this.empleado.toDTO());
-        }
+        dto.setEstado(this.estado);
 
         if(this.proyecto != null){
             dto.setProyecto(this.proyecto.toDTO());
         }
 
-        if(this.supervisor != null){
-            dto.setSupervisor(this.supervisor.toDTO());
+        if(this.user != null){
+            dto.setUser(this.user.toDTO());
         }
 
         return dto;
